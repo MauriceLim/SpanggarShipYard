@@ -15,6 +15,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     <title>Real Estate Builders Free Responsive Website Templates - A Design</title>
     <link rel="favicon" href="assets/images/favicon.png">
     <link rel="stylesheet" media="screen" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/font-awesome.min.css">
     <!-- Custom styles for our template -->
@@ -31,20 +33,23 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     <!-- Fixed navbar -->
     <div class="navbar navbar-inverse">
         <div class="container">
-            <div class="navbar-header">
+            <div class="navbar-brand ml-6 pl-auto">
+                <a href="index.html">
+                    <img src="assets/images/SapangarLogo.png" alt=""></a>
+            </div>
+
+            <div class="navbar-end">
                 <!-- Button for smallest screens -->
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"><span
                         class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
-                <a class="navbar-brand" href="index.html">
-                    <img src="assets/images/SapangarLogo.png" alt="Techro HTML5 template"></a>
+
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav pull-right mainNav">
-                    <li class="active"><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About</a></li>
+                    <li><a href="index.html">Home</a></li>
+                    <li class="active"><a href="about.html">About</a></li>
                     <li><a href="facilities.html">Facilities</a></li>
                     <li><a href="vessels.html">Vessels</a></li>
-                    <li><a href="projects.html">Projects</a></li>
                     <li><a href="careers.html">Careers</a></li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Our Services<b class="caret"></b></a>
@@ -74,63 +79,146 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     </header>
 
     <!-- container -->
-    <section class="container">
-        <div class="row">
-            <!-- main content -->
-            <section class="col-sm-8 maincontent">
-                <img src="assets/images/team2.jpg" alt="" class="img-rounded pull-left" width="50%">
-                <h3 style="color:#C20207">Our Vision</h3>
-                <p style="color: white;">
-                    To be a leading and successful shipyard in Malaysia by [year]
-                </p>
-                <!-- <p style="color: white;">Consectetur adipisicing elit. Eveniet, consequuntur eius repellendus eos aliquid molestiae ea laborum
+    <div class="section has-background-black  ">
+        <div class="container">
+            <div class="notification is-black">
+                <p class="lead has-text-centered m-auto p-auto is-size-1 is-family-monospace is-italic">"We provide
+                    “Affluent
+                    Life”
+                    to the people in
+                    the local community,<br class="d-none d-md-inline">to the people in Malaysia, and to the people in
+                    the
+                    world by offering
+                    world-class products and world-class service."</p>
+
+                <br>
+                <br>
+            </div>
+        </div>
+
+        <div class="container" id="dynamicContent">
+
+
+            <img src="assets/images/team2.jpg" alt="" class="img-rounded pull-left" width="350">
+            <br>
+            <h3 style="color:#C20207" class="title is-size-1 has-text-centered">Our Vision</h3>
+            <p style="color: white;" class=" is-size-2 has-text-centered is-family-sans-serif">
+                To be a leading and successful shipyard in Malaysia by [year]
+            </p>
+            <!-- <p style="color: white;">Consectetur adipisicing elit. Eveniet, consequuntur eius repellendus eos aliquid molestiae ea laborum
                     ex quibusdam laudantium voluptates placeat consectetur quam aliquam beatae soluta accusantium iusto
                     nihil nesciunt unde veniam magnam repudiandae sapiente.</p> -->
-                <h3 style="color:#C20207">Our Mission</h3>
-                <!-- <strong>2014</strong> -->
-                <p style="color: white;">
-                    Ensure timely delivey of quality products & excellent services to exceed customer satisfaction &
-                    stake holders equitable returns</p>
-                <h3 style="color:#C20207">Our Culture</h3>
-                <p style="color: white;">Proactive, committed, teamwork, quality, timeliness, integrity, learning</p>
-
-            </section>
-            <!-- /main -->
-
-            <!-- Sidebar -->
-            <aside class="col-sm-4 sidebar sidebar-right">
-
-                <div class="panel">
-                    <h4 style="color: white;">Latest News</h4>
-                    <ul class="list-unstyled list-spaces">
-                        <li><a href="" style="color:#C20207">New Vessels</a><br>
-                            <span class="small text-muted" style="color: white;">Lorem ipsum dolor sit amet, consectetur
-                                adipisicing elit.
-                                Animi, laborum.</span></li>
-                        <li><a href="" style="color:#C20207">New Services</a><br>
-                            <span class="small text-muted" style="color: white;">Consequuntur eius repellendus eos
-                                aliquid molestiae ea
-                                laborum ex quibusdam</span></li>
-                        <li><a href="" style="color:#C20207">Careers</a><br>
-                            <span class="small text-muted" style="color: white;">Eveniet, consequuntur eius repellendus
-                                eos aliquid molestiae
-                                ea</span></li>
-                        <li><a href="" style="color:#C20207">New Project</a><br>
-                            <span class="small text-muted" style="color: white;">Sed, mollitia earum debitis est itaque
-                                esse reiciendis amet
-                                cupiditate.</span></li>
-                        <li><a href="" style="color:#C20207">Premium Quality</a><br>
-                            <span class="small text-muted" style="color: white;">Voluptate minus illo tenetur sint ab in
-                                culpa cumque impedit
-                                quibusdam. Saepe, molestias quia.</span></li>
-                    </ul>
-                </div>
-
-            </aside>
-            <!-- /Sidebar -->
+            <h3 style="color:#C20207" class="title is-size-1 has-text-centered">Our Mission</h3>
+            <!-- <strong>2014</strong> -->
+            <p style="color: white;" class=" is-size-2 has-text-centered is-family-sans-serif">
+                Ensure timely delivey of quality products & excellent services to exceed customer satisfaction &
+                stake holders equitable returns</p>
+            <h3 style="color:#C20207" class="title is-size-1 has-text-centered">Our Culture</h3>
+            <p style="color: white;" class=" is-size-2 has-text-centered is-family-sans-serif">Proactive, committed,
+                teamwork, quality,
+                timeliness,
+                integrity, learning</p>
 
         </div>
-    </section>
+
+    </div>
+
+    <div class="container">
+
+        <h1 class="has-text-centered is-italic has-background-grey-dark is-family-primary" style="color: white;">
+            EXECUTIVES</h1>
+        <br>
+        <br>
+
+    </div>
+    <div class="container">
+        <div class=" col-md-3 col-sm-6 col-xs-6">
+            <!-- Team Member -->
+            <div class="team-member">
+                <!-- Image Hover Block -->
+                <div class="member-img">
+                    <!-- Image  -->
+                    <img class="img-responsive" src="assets/images/photo-1.jpg" alt="">
+                </div>
+                <!-- Member Details -->
+                <h4 style="color: white;">John Doe</h4>
+                <!-- Designation -->
+                <span class="pos" style="color: white;">CEO</span>
+                <div class="team-socials">
+                    <a href="#"><i class="fa fa-facebook"></i></a>
+                    <a href="#"><i class="fa fa-google-plus"></i></a>
+                    <a href="#"><i class="fa fa-twitter"></i></a>
+                    <a href="#"><i class="fa fa-dribbble"></i></a>
+                    <a href="#"><i class="fa fa-github"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 col-sm-6 col-xs-6">
+            <!-- Team Member -->
+            <div class="team-member pDark">
+                <!-- Image Hover Block -->
+                <div class="member-img">
+                    <!-- Image  -->
+                    <img class="img-responsive" src="assets/images/photo-2.jpg" alt="">
+                </div>
+                <!-- Member Details -->
+                <h4 style="color: white;">Larry Doe</h4>
+                <!-- Designation -->
+                <span class="pos" style="color: white;">Director</span>
+                <div class="team-socials">
+                    <a href="#"><i class="fa fa-facebook"></i></a>
+                    <a href="#"><i class="fa fa-google-plus"></i></a>
+                    <a href="#"><i class="fa fa-twitter"></i></a>
+                    <a href="#"><i class="fa fa-dribbble"></i></a>
+                    <a href="#"><i class="fa fa-github"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 col-sm-6 col-xs-6">
+            <!-- Team Member -->
+            <div class="team-member pDark">
+                <!-- Image Hover Block -->
+                <div class="member-img">
+                    <!-- Image  -->
+                    <img class="img-responsive" src="assets/images/photo-3.jpg" alt="">
+                </div>
+                <!-- Member Details -->
+                <h4 style="color: white;">Ranith Kays</h4>
+                <!-- Designation -->
+                <span class="pos" style="color: white;">Manager</span>
+                <div class="team-socials">
+                    <a href="#"><i class="fa fa-facebook"></i></a>
+                    <a href="#"><i class="fa fa-google-plus"></i></a>
+                    <a href="#"><i class="fa fa-twitter"></i></a>
+                    <a href="#"><i class="fa fa-dribbble"></i></a>
+                    <a href="#"><i class="fa fa-github"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 col-sm-6 col-xs-6">
+            <!-- Team Member -->
+            <div class="team-member pDark">
+                <!-- Image Hover Block -->
+                <div class="member-img">
+                    <!-- Image  -->
+                    <img class="img-responsive" src="assets/images/photo-4.jpg" alt="">
+                </div>
+                <!-- Member Details -->
+                <h4 style="color: white;">Joan Ray</h4>
+                <!-- Designation -->
+                <span class="pos" style="color: white;">Creative</span>
+                <div class="team-socials">
+                    <a href="#"><i class="fa fa-facebook"></i></a>
+                    <a href="#"><i class="fa fa-google-plus"></i></a>
+                    <a href="#"><i class="fa fa-twitter"></i></a>
+                    <a href="#"><i class="fa fa-dribbble"></i></a>
+                    <a href="#"><i class="fa fa-github"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
     <!-- /container -->
     <!-- <section class="team-content">
         <div class="container">
@@ -172,7 +260,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                 <a href="about.html">About</a> |
                                 <a href="services.html">Services</a> |
                                 <a href="price.html">Price</a> |
-                                <a href="projects.html">Projects</a> |
+                                <a href="vessels.html">Projects</a> |
                                 <a href="contact.html">Contact</a>
                             </p>
                         </div>
