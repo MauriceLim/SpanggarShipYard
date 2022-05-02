@@ -225,3 +225,80 @@ window.onclick = function(event) {
     modal.style.display = "none";
   }
 }
+
+// Get the modal
+var modal = document.getElementsById("myModal");
+
+// Get the button that opens the modal
+var btn = document.getElementsById("myBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close");
+
+// When the user clicks the button, open the modal 
+btn[0].onclick = function() {
+  modal[0].style.display = "block";
+}
+btn[1].onclick = function() {
+    modal[1].style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span[0].onclick = function() {
+    modal[0].style.display = "none";
+}
+
+span[1].onclick = function() {
+    mode[1].style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal[0]) {
+    modal[0].style.display = "none";
+  }
+  if (event.target == modal[1]) {
+      modal[1].style.display = "none";
+  }
+}
+
+
+db.collection('jobs_available').get().then((data) => {
+    let jobs = data.docs;
+    let jobsContent = document.querySelector("#main");
+    let jobsHTML = `This is a test string`;
+        jobs.forEach((job) => {
+            jobsHTML += `
+            <a href="/jobs/IFk0ZaFpG3ac/finance-manager" class="heading"
+            data-portal-title="Position" data-portal-location="${job.data().location}}"
+            data-portal-job-type="${job.data().work_type}" data-portal-remote-location=${job.data().remote}>
+            <div class="row">
+                <div class="job-list-info">
+                    <div class="job-title">${job.data().job_title}</div>
+                    <div class="job-desc text">
+                        ${job.data().job_description}
+                    </div>
+                </div>
+                <div class="job-location">
+                    <div class="location-info">
+
+
+                        ${job.data().location}
+
+                        <br />
+                        ${job.data().work_type}
+                    </div>
+                    <div class="location-icon">
+                        <i class="fa-solid fa-arrow-right-long"></i>
+                    </div>
+                </div>
+            </div>
+        </a>`
+            let jobsPage = document.querySelector("#body");
+            jobsContent.addEventListener('load', () => {
+                document.querySelector("#jobContent").innerHTML = "";
+
+                jobsPage.innerHTML = jobsHTML;
+            })
+        })
+})
