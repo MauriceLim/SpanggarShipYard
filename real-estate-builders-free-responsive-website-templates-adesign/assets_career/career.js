@@ -23,14 +23,14 @@
             },
             e = decodeURI(window.location.search).substring(1);
         e = e.split("&");
-        // for (var o = 0; o < e.length; o++) {
-        //     var i = e[o].split("=");
-        //     if (i.length > 1) {
-        //         var l = i[0],
-        //             a = i[1];
-        //         "object" != typeof t[l] && "boolean" != typeof t[l] || (a = JSON.parse(a)), t[l] = a
-        //     }
-        // }
+        for (var o = 0; o < e.length; o++) {
+            var i = e[o].split("=");
+            if (i.length > 1) {
+                var l = i[0],
+                    a = i[1];
+                "object" != typeof t[l] && "boolean" != typeof t[l] || (a = JSON.parse(a)), t[l] = a
+            }
+        }
         return t
     }
 
