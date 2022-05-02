@@ -1,3 +1,5 @@
+// FOR THE MODALS
+
 // Get the modal
 var modal = document.getElementById("myModal");
 
@@ -22,4 +24,44 @@ window.onclick = function (event) {
     if (event.target == modal) {
         modal.style.display = "none";
     }
+}
+
+
+
+
+
+// FOR TH DATA
+
+let vessels = document.getElementById('#vesselsDiv');
+
+function displayData() {
+    firebase.auth().currentUser.getIdToken().then(token => console.log('got token', token))
+    db.collection('vessels').get().then(response => {
+
+        let res = response.docs;
+        res.forEach(r => {
+            vesselsDiv.appendChild(`<p>${r.data().name} is in ${r.data().engine}</p>`)
+        })
+
+        console.log(response.docs[1].data().name + " is in " + response.docs[1].data().location);
+    })
+}
+
+displayData();
+
+
+
+
+
+
+
+
+// save data to the database
+
+function saveData() {
+    let newRestaurant = {
+        name: "lorem ipsum",
+        location: "somewhere"
+    };
+    db.collection('restaurants').add(newRestaurant);
 }
