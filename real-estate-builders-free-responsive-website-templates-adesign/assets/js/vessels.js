@@ -6,6 +6,12 @@ var modal = document.getElementById("myModal");
 // Get the button that opens the modal
 var btn = document.getElementById("ModalLink");
 
+// Get the modal
+var modal = document.getElementById("myModal2");
+
+// Get the button that opens the modal
+var btn = document.getElementById("ModalLink2");
+
 // Get the <span> element that closes the modal
 var span = document.getElementsByClassName("close")[0];
 
