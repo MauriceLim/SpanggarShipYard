@@ -208,20 +208,157 @@ var btn = document.getElementById("myBtn");
 
 // Get the <span> element that closes the modal
 var span = document.getElementsByClassName("close")[0];
+console.log();
 
 // When the user clicks the button, open the modal 
-btn.onclick = function() {
-  modal.style.display = "block";
+btn.onclick = function () {
+    modal.style.display = "block";
 }
 
 // When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-  modal.style.display = "none";
+span.onclick = function () {
+    modal.style.display = "none";
 }
 
 // When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
+window.onclick = function (event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    } else if (event.target == modal2) {
+        modal2.style.display = "none";
+    }
 }
+
+// Get the modal
+var modal2 = document.getElementById("myModal2");
+
+// Get the button that opens the modal
+// this is also the sign in button
+var btn2 = document.getElementById("myBtn2");
+
+// Get the <span> element that closes the modal
+var span2 = document.getElementsByClassName("close")[1];
+
+// When the user clicks the button, open the modal 
+btn2.onclick = function () {
+    modal2.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span2.onclick = function () {
+    modal2.style.display = "none";
+}
+
+let newjobform = document.querySelector("#newjobform");
+
+newjobform.addEventListener('submit', (e) => {
+    e.preventDefault();
+    let dept = document.getElementById("department");
+    let deptStr = dept.options[dept.selectedIndex].text;
+    let workType = document.getElementById("worktype");
+    let workTypeStr = workType.options[workType.selectedIndex].text;
+    let location = document.getElementById("location");
+    let locationStr = location.options[location.selectedIndex].text;
+    let jobTitle = document.querySelector("#jobTitle").value;
+    let desc = document.querySelector("#description").value;
+
+    let joblistingDetails = {
+        departmentName: deptStr,
+        job_description: desc,
+        job_title: jobTitle,
+        job_type: workTypeStr,
+        located: locationStr
+    }
+
+    db.collection("jobs_available").add(joblistingDetails).then((data) => {
+        console.log("Job created successfully.")
+        submitListingForm.reset();
+        alert(`Your job has been successfully added to our collection of listings! Listing ID: "${data.id} (Note: it may take a moment for your listing to be published)`)
+        location.reload()
+    })
+})
+
+// signing in users
+
+let signInForm = document.querySelector("#signinForm");
+
+signInForm.addEventListener('submit', (e) =>{
+  e.preventDefault();
+
+  let email = document.querySelector("#email").value;
+  let password = document.querySelector("#password").value;
+
+  auth.signInWithEmailAndPassword(email, password)
+    .then((userCredentials) => {
+      alert("Welcome " + userCredentials.user.email + " with the ID " + userCredentials.user.uid + ", you have successfully signed in")
+
+
+      // reset
+      signUpForm.reset();
+      location.reload()
+    })
+
+})
+
+// signing up users
+
+let signUpForm = document.querySelector("#signinForm");
+
+signUpForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+
+  let email = document.querySelector('#email_').value;
+  let password = document.querySelector('#password_').value;
+
+  auth.createUserWithEmailAndPassword(email, password).then(() => {
+    alert("Account has been created successfully");
+
+
+
+    // reset the form
+    signUpForm.reset();
+
+  })
+})
+
+
+
+db.collection('jobs_available').get().then((data) => {
+    let jobs = data.docs;
+    let jobsContent = document.querySelector("#main");
+    let jobsHTML = `This is a test string`;
+    jobs.forEach((job) => {
+        jobsHTML += `
+            <a href="/jobs/IFk0ZaFpG3ac/finance-manager" class="heading"
+            data-portal-title="Position" data-portal-location="${job.data().location}}"
+            data-portal-job-type="${job.data().work_type}" data-portal-remote-location=${job.data().remote}>
+            <div class="row">
+                <div class="job-list-info">
+                    <div class="job-title">${job.data().job_title}</div>
+                    <div class="job-desc text">
+                        ${job.data().job_description}
+                    </div>
+                </div>
+                <div class="job-location">
+                    <div class="location-info">
+
+
+                        ${job.data().location}
+
+                        <br />
+                        ${job.data().work_type}
+                    </div>
+                    <div class="location-icon">
+                        <i class="fa-solid fa-arrow-right-long"></i>
+                    </div>
+                </div>
+            </div>
+        </a>`
+        let jobsPage = document.querySelector("#body");
+        jobsContent.addEventListener('load', () => {
+            document.querySelector("#jobContent").innerHTML = "";
+
+            jobsPage.innerHTML = jobsHTML;
+        })
+    })
+})
