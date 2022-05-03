@@ -160,8 +160,21 @@
                         <label for="toggle-btn"></label>
                     </div>
                 </div>
-                <button id="myBtn">Post a New Job</button>
-                <button id="myBtn2">Sign In/Sign Up</button>
+
+                <div class="loggedout">
+                    <button id="myBtn2">Sign In/Sign Up</button>
+                    <div class="loggedout">
+                        <p id="welcome"></p>
+                    </div>
+                </div>
+                <div class="loggedin">
+                    <button id="myBtn">Post a New Job</button>
+                    <button id="myBtn3">Sign Out</button>
+                    <div class="loggedin">
+                        <p id="message"></p>
+                    </div>
+    
+                </div>
 
                 <!-- The Modal -->
                 <div id="myModal" class="modal">
@@ -225,12 +238,23 @@
                                     <label id="modal-label">Description</label>
                                     <textarea name="description" id="description" cols="30" rows="5"></textarea>
                                 </div>
-                                <div id="form-button">
-                                    <button class="button">
-                                        <span>
-                                            Submit
-                                        </span>
-                                    </button>
+                                <div class="field-column">
+
+                                        <span>Remote Only</span>
+                                        <div class="toggle-switch">
+                                            <input name="[remote]" type="hidden" value="0" /><input id="remote-toggle-mobile"
+                                                class="toggle-btn" type="checkbox" value="1" name="[remote]" />
+                                            <label for="toggle-btn"></label>
+                                        </div>
+                                </div>
+                                <div class="field-column">
+                                    <div id="job-form-button">
+                                        <button class="button">
+                                            <span>
+                                                Submit
+                                            </span>
+                                        </button>
+                                    </div>
                                 </div>
                             </form>
                         </div>
@@ -288,12 +312,49 @@
                 <div data-portal-id="jobs_list">
                     <div class="job-role-list" data-portal-id="job-role-list">
 
-                        <div class="main">
-                            <div class="body">
+                        <div id="main">
+                            <div id="body">
                             </div>
-                            <div class="jobContent">
+                            <div id="jobContent">
                             </div>
                         </div>
+
+                        <!-- The following code block is an example of what it should look like for a job posting -->
+<!-- 
+                        <a href="/jobs/KvSheGicA4Zk/business-development-executive-jaya-one"
+                        class="heading" data-portal-title="businessdevelopmentexecutive-jayaone"
+                        data-portal-location="Petaling Jaya, Malaysia" data-portal-job-type="2"
+                        data-portal-remote-location=false>
+                        <div class="row">
+                            <div class="job-list-info">
+                                <div class="job-title">Business Development Executive - Jaya One
+                                </div>
+                                <div class="job-desc text">
+                                    The TeamDo you strive in an ever-changing, fast-paced
+                                    environment?
+                                    Are
+                                    you a go-getter full of energy and drive to accomplish your
+                                    dreams?
+                                    If
+                                    you answered yes, we would love to talk! At Poladrone, we’...
+                                </div>
+                            </div>
+                            <div class="job-location">
+                                <div class="location-info">
+
+
+                                    Petaling Jaya, Selangor
+
+                                    <br />
+                                    Full Time
+                                </div>
+                                <div class="location-icon">
+                                    <i class="fa-solid fa-arrow-right-long"></i>
+
+                                </div>
+                            </div>
+                        </div>
+                    </a> -->
                  
                 <!-- Do not remove data-portal-* attributes. Removing the same will result in breakages in filter behaviour -->
                 <div class="no-jobs-found" data-portal-id="no_data">

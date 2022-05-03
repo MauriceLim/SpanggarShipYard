@@ -200,6 +200,78 @@
     t()
 }();
 
+let loggedoutlinks = document.querySelectorAll('.loggedout');
+let loggedinlinks = document.querySelectorAll('.loggedin');
+
+function configureNav(user){
+    // check if user is signed in
+    if(user) {
+      document.querySelector('#welcome').innerHTML = `Signed in as: ${auth.currentUser.email}`
+      document.querySelector('#message').innerHTML = "";
+      // show all loggedin links
+      loggedinlinks.forEach((link) => {
+        link.classList.remove('is-hidden');
+      })
+      
+      // hide all loggedout links
+      loggedoutlinks.forEach((link) => {
+        link.classList.add('is-hidden');
+      })
+    }
+    // if no user is signed in
+    else{
+      document.querySelector('#welcome').innerHTML = "";
+      document.querySelector('#message').innerHTML = "please log in to view the listings";
+      // show all the loggedout links
+      loggedoutlinks.forEach((link) => {
+        link.classList.remove('is-hidden');
+      })
+  
+      // hide all loggedin links
+      loggedinlinks.forEach((link) => {
+        link.classList.add('is-hidden');
+      })
+    }
+  }
+
+  db.collection('jobs_available').get().then((data) => {
+    let jobs = data.docs;
+    let jobsLink = document.querySelector("#main");
+    let jobsHTML = `This is a test string`;
+    jobs.forEach((job) => {
+        jobsHTML += `
+            <a href="/jobs/IFk0ZaFpG3ac/finance-manager" class="heading"
+            data-portal-title="Position" data-portal-location="${job.data().location}}"
+            data-portal-job-type="${job.data().work_type}" data-portal-remote-location=${job.data().remote}>
+            <div class="row">
+                <div class="job-list-info">
+                    <div class="job-title">${job.data().job_title}</div>
+                    <div class="job-desc text">
+                        ${job.data().job_description}
+                    </div>
+                </div>
+                <div class="job-location">
+                    <div class="location-info">
+                        ${job.data().location}
+                        <br />
+                        ${job.data().work_type}
+                    </div>
+                    <div class="location-icon">
+                        <i class="fa-solid fa-arrow-right-long"></i>
+                    </div>
+                </div>
+            </div>
+        </a>`
+        let jobsPage = document.querySelector("#body");
+        jobsLink.addEventListener('load', () => {
+            document.querySelector("#jobContent").innerHTML = "";
+            console.log(jobsHTML);
+            console.log(jobsPage);
+            jobsPage.innerHTML = jobsHTML;
+        })
+    })
+})
+
 // Get the modal
 var modal = document.getElementById("myModal");
 
@@ -272,9 +344,9 @@ newjobform.addEventListener('submit', (e) => {
 
     db.collection("jobs_available").add(joblistingDetails).then((data) => {
         console.log("Job created successfully.")
-        submitListingForm.reset();
+        newjobform.reset();
         alert(`Your job has been successfully added to our collection of listings! Listing ID: "${data.id} (Note: it may take a moment for your listing to be published)`)
-        location.reload()
+        window.location.reload()
     })
 })
 
@@ -295,9 +367,20 @@ signInForm.addEventListener('submit', (e) =>{
 
       // reset
       signUpForm.reset();
-      location.reload()
+      window.location.reload()
     })
 
+})
+
+// signing out users
+let signoutbtn = document.querySelector("#myBtn3");
+
+signoutbtn.addEventListener('click', () => {
+  auth.signOut()
+    .then((msg) => {
+      alert("You have successfully signed out");
+      window.location.reload()
+    })
 })
 
 // signing up users
@@ -314,51 +397,21 @@ signUpForm.addEventListener('submit', (e) => {
     alert("Account has been created successfully");
 
 
-
     // reset the form
     signUpForm.reset();
 
   })
 })
 
+// authentication status
 
+auth.onAuthStateChanged((user) => {
+    if (user) {
+      console.log('user is now signed in');
+      configureNav(user);
+    } else {
+      console.log('user is now signed out');
+      configureNav();
+    }
+  })
 
-db.collection('jobs_available').get().then((data) => {
-    let jobs = data.docs;
-    let jobsContent = document.querySelector("#main");
-    let jobsHTML = `This is a test string`;
-    jobs.forEach((job) => {
-        jobsHTML += `
-            <a href="/jobs/IFk0ZaFpG3ac/finance-manager" class="heading"
-            data-portal-title="Position" data-portal-location="${job.data().location}}"
-            data-portal-job-type="${job.data().work_type}" data-portal-remote-location=${job.data().remote}>
-            <div class="row">
-                <div class="job-list-info">
-                    <div class="job-title">${job.data().job_title}</div>
-                    <div class="job-desc text">
-                        ${job.data().job_description}
-                    </div>
-                </div>
-                <div class="job-location">
-                    <div class="location-info">
-
-
-                        ${job.data().location}
-
-                        <br />
-                        ${job.data().work_type}
-                    </div>
-                    <div class="location-icon">
-                        <i class="fa-solid fa-arrow-right-long"></i>
-                    </div>
-                </div>
-            </div>
-        </a>`
-        let jobsPage = document.querySelector("#body");
-        jobsContent.addEventListener('load', () => {
-            document.querySelector("#jobContent").innerHTML = "";
-
-            jobsPage.innerHTML = jobsHTML;
-        })
-    })
-})
