@@ -226,6 +226,7 @@ function configureNav(user){
       loggedoutlinks.forEach((link) => {
         link.classList.remove('is-hidden');
       })
+      
   
       // hide all loggedin links
       loggedinlinks.forEach((link) => {
@@ -241,8 +242,8 @@ function configureNav(user){
     let jobsHTML = ``;
     jobs.forEach((job) => {
         jobsHTML += `                        
-        <a href="/jobs/KvSheGicA4Zk/business-development-executive-jaya-one"
-        class="heading" data-portal-title="businessdevelopmentexecutive-jayaone"
+        <a href="/jobs/KvSheGicA4Zk/${job.data().job_keyword}"
+        class="heading" data-portal-title="${job.data().job_keyword}"
         data-portal-location="${job.data().located}" data-portal-job-type="${job.data().job_no}"
         data-portal-remote-location=${job.data().remote_work}>
         <div class="row">
@@ -339,6 +340,7 @@ newjobform.addEventListener('submit', (e) => {
     let location = document.getElementById("location");
     let locationStr = location.options[location.selectedIndex].text;
     let jobTitle = document.querySelector("#jobTitle").value;
+    let jobKeyword = jobTitle.toLowerCase().replace(/\s/g, '');
     let desc = document.querySelector("#description").value;
     let jobNo = 0;
     let remote = document.querySelector("#remote-toggle-mobile").value;
@@ -361,6 +363,7 @@ newjobform.addEventListener('submit', (e) => {
         job_description: desc,
         job_title: jobTitle,
         job_type: workTypeStr,
+        job_keyword: jobKeyword,
         job_no: jobNo,
         located: locationStr,
         remote_work: remote,
