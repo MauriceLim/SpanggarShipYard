@@ -162,7 +162,7 @@
                 </div>
 
                 <div class="loggedout">
-                    <button id="myBtn2">Sign In/Sign Up</button>
+                    <button id="myBtn2"></button>
                     <div class="loggedout">
                         <p id="welcome"></p>
                     </div>
@@ -233,19 +233,18 @@
                                 <div class="field-column">
                                     <label id="modal-label">Job Title</label>
                                     <input type="text" id="jobTitle">
+                                    <label id="modal-label">Remote Work</label>
+                                    <div class="toggle-switch">
+                                        <input name="[remote]" type="hidden" value="0" /><input id="remote-toggle-mobile"
+                                            class="toggle-btn" type="checkbox" value="1" name="[remote]" />
+                                        <label for="toggle-btn"></label>
+                                    </div>
                                 </div>
                                 <div class="field">
                                     <label id="modal-label">Description</label>
                                     <textarea name="description" id="description" cols="30" rows="5"></textarea>
                                 </div>
                                 <div class="field-column">
-
-                                        <span>Remote Only</span>
-                                        <div class="toggle-switch">
-                                            <input name="[remote]" type="hidden" value="0" /><input id="remote-toggle-mobile"
-                                                class="toggle-btn" type="checkbox" value="1" name="[remote]" />
-                                            <label for="toggle-btn"></label>
-                                        </div>
                                 </div>
                                 <div class="field-column">
                                     <div id="job-form-button">
@@ -267,7 +266,7 @@
                     <div class="modal-content">
                         <span class="close">&times;</span>
                         <form id="signinForm">
-                            <h1>Sign In</h1>
+                            <h1 id="sign-modal-header">Sign In</h1>
                             <!-- Email -->
                             <div class="field-column">
                                 <label class="label">Email</label>
@@ -284,7 +283,7 @@
                                     </button>
                                 </div>
                             </div>
-                            <h1>Sign Up</h1>
+                            <h1 id="sign-modal-header">Sign Up</h1>
                             <!-- Email -->
                             <div class="field-column">
                                 <label class="label">Email</label>
@@ -311,11 +310,47 @@
       'data-portal-id="jobs_list"' has been added to the Job List wrapper -->
                 <div data-portal-id="jobs_list">
                     <div class="job-role-list" data-portal-id="job-role-list">
+                        <ul>
 
+                            <li data-portal-role="_role_5000115098">
+                                    <!-- Do not remove data-portal-* attributes. Removing the same will result in breakages in filter behaviour -->
+                                <div>
+                                    <div class="job-list">
+                                        <a href="/jobs/IFk0ZaFpG3ac/finance-manager" class="heading"
+                                        data-portal-title="financemanager" data-portal-location="Lahad Datu, Malaysia"
+                                        data-portal-job-type="2" data-portal-remote-location=true>
+                                        <div class="row">
+                                            <div class="job-list-info">
+                                                <div class="job-title">Finance Manager</div>
+                                                <div class="job-desc text">
+                                                    The TeamDo you strive in an ever changing, fast paced environment?
+                                                    Are
+                                                    you a go-getter with full of energy and drive to accomplish your
+                                                    dreams?
+                                                    If you answered yes, we would love to talk! At Poladrone...
+                                                </div>
+                                            </div>
+                                            <div class="job-location">
+                                                <div class="location-info">
+
+
+                                                    Lahad Datu, Sabah, Malaysia
+
+                                                    <br />
+                                                    Full Time
+                                                </div>
+                                                <div class="location-icon">
+                                                    <i class="fa-solid fa-arrow-right-long"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
                         <div id="main">
                             <div id="body">
+                                
                             </div>
                             <div id="jobContent">
+                                
                             </div>
                         </div>
 
@@ -355,7 +390,11 @@
                             </div>
                         </div>
                     </a> -->
-                 
+
+                
+                        </ul>
+                    </div>
+                </div> 
                 <!-- Do not remove data-portal-* attributes. Removing the same will result in breakages in filter behaviour -->
                 <div class="no-jobs-found" data-portal-id="no_data">
                     <div class="no-jobs-icon">
