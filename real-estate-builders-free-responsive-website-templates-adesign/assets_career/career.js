@@ -234,43 +234,50 @@ function configureNav(user){
     }
   }
 
+  let jobsPage = document.querySelector(".job-list");
+
   db.collection('jobs_available').get().then((data) => {
     let jobs = data.docs;
-    let jobsLink = document.querySelector("#main");
-    let jobsHTML = `This is a test string`;
+    let jobsHTML = ``;
     jobs.forEach((job) => {
-        jobsHTML += `
-            <a href="/jobs/IFk0ZaFpG3ac/finance-manager" class="heading"
-            data-portal-title="Position" data-portal-location="${job.data().location}}"
-            data-portal-job-type="${job.data().work_type}" data-portal-remote-location=${job.data().remote}>
-            <div class="row">
-                <div class="job-list-info">
-                    <div class="job-title">${job.data().job_title}</div>
-                    <div class="job-desc text">
-                        ${job.data().job_description}
-                    </div>
+        jobsHTML += `                        
+        <a href="/jobs/KvSheGicA4Zk/business-development-executive-jaya-one"
+        class="heading" data-portal-title="businessdevelopmentexecutive-jayaone"
+        data-portal-location="${job.data().located}" data-portal-job-type="${job.data().job_no}"
+        data-portal-remote-location=${job.data().remote_work}>
+        <div class="row">
+            <div class="job-list-info">
+                <div class="job-title">${job.data().job_title}
                 </div>
-                <div class="job-location">
-                    <div class="location-info">
-                        ${job.data().location}
-                        <br />
-                        ${job.data().work_type}
-                    </div>
-                    <div class="location-icon">
-                        <i class="fa-solid fa-arrow-right-long"></i>
-                    </div>
+                <div class="job-desc text">
+                    ${job.data().job_description}
                 </div>
             </div>
-        </a>`
-        let jobsPage = document.querySelector("#body");
-        jobsLink.addEventListener('load', () => {
-            document.querySelector("#jobContent").innerHTML = "";
-            console.log(jobsHTML);
-            console.log(jobsPage);
-            jobsPage.innerHTML = jobsHTML;
+            <div class="job-location">
+                <div class="location-info">
+                    ${job.data().located}
+                    <br />
+                    ${job.data().job_type}
+                </div>
+                <div class="location-icon">
+                    <i class="fa-solid fa-arrow-right-long"></i>
+                </div>
+            </div>
+        </div>
+    </a>`;
         })
+    jobsPage.innerHTML += jobsHTML;
     })
-})
+
+    // let joblistingDetails = {
+    //     departmentName: deptStr,
+    //     job_description: desc,
+    //     job_title: jobTitle,
+    //     job_type: workTypeStr,
+    //     job_no: jobNo,
+    //     located: locationStr,
+    // }
+
 
 // Get the modal
 var modal = document.getElementById("myModal");
@@ -333,13 +340,30 @@ newjobform.addEventListener('submit', (e) => {
     let locationStr = location.options[location.selectedIndex].text;
     let jobTitle = document.querySelector("#jobTitle").value;
     let desc = document.querySelector("#description").value;
+    let jobNo = 0;
+    let remote = document.querySelector("#remote-toggle-mobile").value;
+
+    if (workTypeStr == "Full Time") {
+        jobNo = 2;
+      } else {
+        jobNo = 3;
+      }
+
+    if (remote == "1") {
+        remote = true;
+      } else {
+        remote = false;
+      }
+
 
     let joblistingDetails = {
         departmentName: deptStr,
         job_description: desc,
         job_title: jobTitle,
         job_type: workTypeStr,
-        located: locationStr
+        job_no: jobNo,
+        located: locationStr,
+        remote_work: remote,
     }
 
     db.collection("jobs_available").add(joblistingDetails).then((data) => {

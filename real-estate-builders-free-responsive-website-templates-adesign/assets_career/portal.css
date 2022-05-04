@@ -1927,7 +1927,11 @@ input, select, textarea {
 }
 
 #modal-label {
-    padding: 5px 0px;
+    padding: 2px 0px;
+}
+
+#remote {
+    margin: 0px;
 }
 
 #myBtn {
@@ -1943,16 +1947,27 @@ input, select, textarea {
     color: white;
 }
 
+#sign-modal-header {
+    text-align: left;
+    color: black;
+}
+
 #myBtn2 {
-    background-color: #339DFF;
+    /* background-color: #339DFF;
     transition-duration: 0.4s;
     border-radius: 4px;
     border: 1px solid #339DFF;
-    padding: 5px;
+    padding: 5px; */
+    background: transparent;
+    border: none;
+    outline: none;
+    display: block;
+    cursor: pointer;
+    height:25px;
+    width:100px;
 }
 
 #myBtn2:hover {
-    background-color: #339DFF;
     color: white;
 }
 
