@@ -1,54 +1,57 @@
 let loggedOutLinks = document.querySelectorAll('.loggedout');
 let loggedInLinks = document.querySelectorAll('.loggedin');
-
 //functions 
 
 
 
 function configureNav(user) {
-    //check if user is passed to the function (user is signed in)
-    if (user) {
-        document.querySelector('#welcome_user').innerHTML = `<p>Welcome ${auth.currentUser.email}</p>`
-        //show all the logged in links
-        //hide all the logged out links
+  //check if user is passed to the function (user is signed in)
+  if (user) {
+    document.querySelector('#welcome_user').innerHTML = `<p>Welcome ${auth.currentUser.email}</p>`
+    //show all the logged in links
+    //hide all the logged out links
 
-        loggedInLinks.forEach(link => {
-            link.classList.remove('is-hidden');
+    loggedInLinks.forEach(link => {
+      link.classList.remove('is-hidden');
 
-        });
+    });
 
-        loggedOutLinks.forEach(link => {
-            link.classList.add('is-hidden');
-        })
+    loggedOutLinks.forEach(link => {
+      link.classList.add('is-hidden');
+    })
 
-    }
-    //no user is passed to the function (user is signed out)
-    else {
-        document.querySelector('#welcome_user').innerHTML = "";
-        //show all the logged out link
-        //hide all the logged in links
-        loggedInLinks.forEach(link => {
-            link.classList.add('is-hidden');
 
-        });
+  }
+  //no user is passed to the function (user is signed out)
+  else {
+    document.querySelector('#welcome_user').innerHTML = "";
+    //show all the logged out link
+    //hide all the logged in links
+    loggedInLinks.forEach(link => {
+      link.classList.add('is-hidden');
 
-        loggedOutLinks.forEach(link => {
-            link.classList.remove('is-hidden');
-        })
+    });
 
-    }
+    loggedOutLinks.forEach(link => {
+      link.classList.remove('is-hidden');
+    })
+  }
 }
+
+
+
+
 
 
 let signupbtn = document.querySelector('#signupbtn');
 let signupModal = document.querySelector('#signup-modal');
 let signupModalBg = document.querySelector('#signup-modalbg');
 signupbtn.addEventListener('click', () => {
-    signupModal.classList.add('is-active');
+  signupModal.classList.add('is-active');
 });
 
 signupModalBg.addEventListener('click', () => {
-    signupModal.classList.remove('is-active');
+  signupModal.classList.remove('is-active');
 });
 
 // navigation bar
@@ -58,11 +61,11 @@ let signinbtn = document.querySelector('#signinbtn');
 let signinModal = document.querySelector('#signin-modal');
 let signinModalBg = document.querySelector('#signin-modalbg');
 signinbtn.addEventListener('click', () => {
-    signinModal.classList.add('is-active');
+  signinModal.classList.add('is-active');
 })
 
 signinModalBg.addEventListener('click', () => {
-    signinModal.classList.remove('is-active');
+  signinModal.classList.remove('is-active');
 });
 
 
@@ -70,24 +73,24 @@ signinModalBg.addEventListener('click', () => {
 let signup_form = document.querySelector('#signup_form');
 //attach a SUBMIT event
 signup_form.addEventListener('click', (e) => {
-    e.preventDefault();
-    let email = document.querySelector('#email').value;
-    let password = document.querySelector('#password').value;
+  e.preventDefault();
+  let email = document.querySelector('#email').value;
+  let password = document.querySelector('#password').value;
 
-    auth.createUserWithEmailAndPassword(email, password).then(() => {
-            console.log('user created successfully!');
+  auth.createUserWithEmailAndPassword(email, password).then(() => {
+      console.log('user created successfully!');
 
-            signupModal.classList.remove('is-active');
+      signupModal.classList.remove('is-active');
 
-            //reset the modal
-            signup_form.reset();
-        })
+      //reset the modal
+      signup_form.reset();
+    })
 
-        .catch((error) => {
-            let signup_error = document.querySelector("#signup_error");
-            signup_error.innerHTML = `<p>${error.message}</p>`
+    .catch((error) => {
+      let signup_error = document.querySelector("#signup_error");
+      signup_error.innerHTML = `<p>${error.message}</p>`
 
-        })
+    })
 })
 
 // sign in form
@@ -95,24 +98,24 @@ signup_form.addEventListener('click', (e) => {
 let signin_form = document.querySelector("#signin_form");
 
 signin_form.addEventListener('submit', (e) => {
-    e.preventDefault();
+  e.preventDefault();
 
-    let email = document.querySelector("#email_").value;
-    let password = document.querySelector("#password_").value;
+  let email = document.querySelector("#email_").value;
+  let password = document.querySelector("#password_").value;
 
-    auth.signInWithEmailAndPassword(email, password)
-        .then((userCredential) => {
-            console.log(userCredential.user.email);
-            //close the modal
-            signinModal.classList.remove('is-active');
-            signin_form.reset();
-        })
-        .catch((error) => {
-            let signin_error = document.querySelector('#signin_error');
-            signin_error.innerHTML = `<p>${error.message}</p>`
-            signin_form.reset();
+  auth.signInWithEmailAndPassword(email, password)
+    .then((userCredential) => {
+      console.log(userCredential.user.email);
+      //close the modal
+      signinModal.classList.remove('is-active');
+      signin_form.reset();
+    })
+    .catch((error) => {
+      let signin_error = document.querySelector('#signin_error');
+      signin_error.innerHTML = `<p>${error.message}</p>`
+      signin_form.reset();
 
-        })
+    })
 })
 
 
@@ -121,45 +124,80 @@ let signoutbtn = document.querySelector('#signoutbtn');
 
 
 signoutbtn.addEventListener('click', () => {
-    auth.signOut()
-        .then((msg) => {
+  auth.signOut()
+    .then((msg) => {
 
-        })
+    })
 
 })
 
 
 auth.onAuthStateChanged((user) => {
-    if (user) {
-        console.log('user is now signed in');
-        configureNav(user);
-
-
-    } else {
-        console.log('user is now signed out!');
-        configureNav();
-
+  if (user) {
+    console.log('user is now signed in');
+    configureNav(user);
+    let all = document.getElementById('all');
+    let available = document.getElementById('available');
+    let sold = document.getElementById('sold');
+    all.onclick = function (event) {
+      load_vessel_admin("none");
     }
+    available.onclick = function (event) {
+      load_vessel_admin("available");
+    }
+    sold.onclick = function (event) {
+      load_vessel_admin("sold");
+    }
+    load_vessel_admin("none");
+
+    // let soldbutton = document.getElementById('soldbtn');
+
+    // soldbutton.onclick = function (event) {
+    //   load_vessel_admin("sold");
+    // }
+
+
+
+
+
+  } else {
+    console.log('user is now signed out!');
+    configureNav();
+    let all = document.getElementById('all');
+    let available = document.getElementById('available');
+    let sold = document.getElementById('sold');
+    all.onclick = function (event) {
+      load_vessel_client("none");
+    }
+    available.onclick = function (event) {
+      load_vessel_client("available");
+    }
+    sold.onclick = function (event) {
+      load_vessel_client("sold");
+    }
+    load_vessel_client("none");
+
+  }
 })
 
 let postCommentBtn = document.querySelector("#postcommentbtn");
 
-let html = '<h1 class="title is-size-3">Post a Comment</h1>';
+let html = '<h1 class="title is-size-3">Post New Ship</h1>';
 html += `
 <div class="field">
     <div class="columns">
       <div class="column is-6">
         <label class="label"> Title </label>
         <div class="control">
-          <input class="input" type="text" placeholder="Course Name (e.g., STAT 301)" id="course_title">
+          <input class="input is-black" type="text" placeholder="Vessel Name (e.g.,FORDECO 87)" id="vesselName">
         </div>
 
       </div>
 
       <div class="column is-6">
-        <label class="label"> Professor </label>
+        <label class="label"> Price </label>
         <div class="control">
-          <input class="input" type="text" placeholder="Prof's Name" id="prof_name">
+          <input class="input is-black" type="text" placeholder="Vessel's Price (in RM)" id="price">
         </div>
 
       </div>
@@ -174,91 +212,59 @@ html += `
       <div class="column is-2">
 
         <div class="field">
-          <label class="label">Professor Rating: </label>
+          <label class="label">Bhp/Dwt/Teu: </label>
           <div class="control">
-            <input class="input" type="text" placeholder="Sacle of 1-10" id="course_rating">
+            <input class="input is-black" type="text" placeholder="e.g.,2000HP" id="bhp">
           </div>
         </div>
       </div>
 
       <div class="column is-2">
         <div class="field">
-          <label class="label">Grade: </label>
+          <label class="label">Class: </label>
           <div class="control">
-            <input class="input" type="text" placeholder="e.g.,A, AB, B" id="grade">
+            <input class="input is-black" type="text" placeholder="e.g.,NK" id="vesselclass">
           </div>
         </div>
       </div>
 
       <div class="column is-2">
       <div class="field">
-          <label class="label">Number of Credits: </label>
+          <label class="label">Dimensions: </label>
           <div class="control">
-            <div class="select">
-              <select id = "num_credits">
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-              </select>
-            </div>
+            <input class="input is-black" type="text" placeholder="e.g.,30.780m X 9.0m X 4.65m" id="dimensions">
           </div>
         </div>
       </div>
 
       <div class="column is-2">
         <div class="field">
-          <label class="label">Attendance: </label>
-          <div class="control">
-            <div class="select">
-              <select id = "attendance">
-                <option>Mandatory</option>
-                <option>Not Mandatory</option>
-              </select>
+          <label class="label">Engine: </label>
+            <div class="control">
+                <input class="input is-black" type="text" placeholder="e.g.,KTA-50-M2" id="engine">
             </div>
-          </div>
         </div>
       </div>
 
       <div class="column is-2">
-      <div class="field">
-          <label class="label">Mode of Delivery: </label>
-          <div class="control">
-            <div class="select">
-              <select id = "mode_of_delivery">
-                <option>In-person</option>
-                <option>Hybrid</option>
-                <option>Online</option>
-              </select>
-            </div>
-          </div>
-        </div>
-        
-      </div>
-
-      <div class="column is-2">
-      <div class="field">
-          <label class="label">Would Take Again: </label>
-          <div class="control">
-            <div class="select">
-              <select id = "would_take_again">
-                <option id="Yes">Yes</option>
-                <option id="No">No</option>
-              </select>
-            </div>
-          </div>
+        <div class="field">
+        <label class="label">Image</label>
+        <div class="control">
+         <input class = "input" type = "file" id="listing_image" placeholder = "Choose Image" >
         </div>
       </div>
+      </div>
 
-    </div>
+      
+
+      
+
+
   </div>
-
-
-
-</div>
 <div class="field">
-  <label class="label">Comments About The Course</label>
+  <label class="label">Description for The Vessel</label>
   <div class="control">
-    <textarea class="textarea" placeholder="Comments" id="course_description"></textarea>
+    <textarea class=" is-black textarea" placeholder="Description" id="vessel_description"></textarea>
   </div>
 </div>
 
@@ -275,65 +281,244 @@ html += `
 let submitCommentForm = document.querySelector('#submitcommentform');
 postCommentBtn.addEventListener('click', () => {
 
-    document.querySelector('#dynamicContent').innerHTML = "";
 
-    submitCommentForm.innerHTML = html;
+  submitCommentForm.innerHTML = html;
 
 })
 
 submitcommentform.addEventListener('submit', (e) => {
-    e.preventDefault();
-    let dy
-    console.log("im in ");
-    let course_title = document.querySelector('#course_title').value;
-    let prof_name = document.querySelector('#prof_name').value;
-    let course_rating = parseFloat(document.querySelector('#course_rating').value);
-    let grade = document.querySelector('#grade').value;
-    let attendance = document.querySelector('#attendance').value;
-    let mode_of_delivery = document.querySelector('#mode_of_delivery').value;
-    let num_credits = parseInt(document.querySelector('#num_credits').value);
-    let would_take_again = document.querySelector('#would_take_again').value;
-    let course_description = document.querySelector('#course_description').value;
+  e.preventDefault();
+  console.log("im in ");
+  let vesselName = document.querySelector('#vesselName').value;
+  let price = document.querySelector('#price').value;
+  let bhp = parseFloat(document.querySelector('#bhp').value);
+  let vclass = document.querySelector('#vesselclass').value;
+  let dimensions = document.querySelector('#dimensions').value;
+  let engine = document.querySelector('#engine').value;
+  let vessel_description = document.querySelector('#vessel_description').value;
 
-    // combine title and description into one object
-    let course_details = {
-        title: course_title,
-        prof: prof_name,
-        rating: course_rating,
-        grad: grade,
-        attend: attendance,
-        mode: mode_of_delivery,
-        credit: num_credits,
-        take: would_take_again,
-        desc: course_description,
-        status: "Available"
+  let file = document.querySelector("#listing_image").files[0];
+
+  let image = new Date() + "_" + file.name;
+
+  const task = ref.child(image).put(file);
+
+  task
+    .then(snapshot => snapshot.ref.getDownloadURL())
+    .then((url) => {
+
+
+      // combine title and description into one object
+      let vessel_details = {
+        Vessel: vesselName,
+        Price: price,
+        Bhp: bhp,
+        Class: vclass,
+        Dimensions: dimensions,
+        Engine: engine,
+        Description: vessel_description,
+        Link: link,
+        Picture: url,
+        Status: "available"
+      }
+
+      // add course_details into firebase
+
+      db.collection('vessels').add(vessel_details).then((data) => {
+        console.log('vessel added!');
+        submitcommentform.reset();
+      })
+      submitCommentForm.innerHTML = "";
+      load_vessel("none");
+    })
+})
+
+function load_vessel_admin(filter) {
+  db.collection('vessels').get().then(data => {
+    let vesselArray = data.docs;
+    let dyContent2 = document.querySelector('#dynamicContent2');
+    dyContent2.innerHTML = ``;
+
+    if (filter == "none") {
+      vesselArray.forEach(vessel => {
+        let html_temp = `<div class="column is-4 available">
+        <div class="card">
+          <header class="card-header">
+            <p class="card-header-title">
+              ${vessel.data().Vessels} - ${vessel.data().Price}
+            </p>
+            <div class="box">
+            ${vessel.data().Status}
+            </div>
+          </header>
+          <div class="card-content">
+            <div class="content">
+            <ul>
+              <li>Bhp/Dwt/Teu: ${vessel.data().Bhp} </li>
+              <li>Dimension: ${vessel.data().Dimensions}</li>
+              <li>Class: ${vessel.data().Dimensions}</li>
+              <li>Engine: ${vessel.data().Engine}</li>
+              <li>Dimension: ${vessel.data().Dimensions}</li>
+              <li>Dimension: ${vessel.data().Picture}</li>
+
+            </ul>`;
+
+        if (vessel.data().Status != "sold") {
+          html_temp += `            </div>
+          </div>
+          <footer class="card-footer">
+          <p class="card-footer-item">
+      <span>
+        <a class="button is-large" id="soldbtn">SOLD</a>
+      </span>
+    </p>
+            </footer>
+    
+        </div>
+      </div>`;
+        } else {
+          html_temp += `</div>
+          </div><footer class="card-footer">
+          <p class="card-footer-item">
+      <span>
+      </span>
+    </p>
+            </footer>
+    
+        </div>
+      </div>`;
+        }
+        dyContent2.innerHTML += html_temp;
+        console.log("posted");
+      })
+    } else {
+      vesselArray.forEach(vessel => {
+        if (vessel.data().Status == filter) {
+          let html_temp = `<div class="column is-4">
+          <div class="card">
+            <header class="card-header">
+            <p class="card-header-title">
+            ${vessel.data().Vessels}
+          </p>
+          <div class="box">
+          ${vessel.data().Status}
+        </div>
+      
+            </header>
+            <div class="card-content">
+              <div class="content">
+              <ul>
+              <li>Bhp/Dwt/Teu: ${vessel.data().Bhp} </li>
+              <li>Dimension: ${vessel.data().Dimensions}</li>
+              <li>Class: ${vessel.data().Dimensions}</li>
+              <li>Engine: ${vessel.data().Engine}</li>
+              <li>Dimension: ${vessel.data().Dimensions}</li>
+
+            </ul>`;
+
+          if (vessel.data().Status != "sold") {
+            html_temp += `            </div>
+              </div>
+              <footer class="card-footer">
+              <p class="card-footer-item">
+          <span>
+            <a class="button is-large" id="soldbtn">SOLD</a>
+          </span>
+        </p>
+                </footer>
+        
+            </div>
+          </div>`;
+          } else {
+            html_temp += `</div>
+              </div><footer class="card-footer">
+              <p class="card-footer-item">
+          <span>
+          </span>
+        </p>
+                </footer>
+        
+            </div>
+          </div>`;
+          }
+          dyContent2.innerHTML += html_temp;
+          console.log("posted");
+        }
+      })
     }
 
-    // add course_details into firebase
 
-    db.collection('courses').add(course_details).then((data) => {
-        console.log('course added!');
-        submitcommentform.reset();
-    })
-    submitCommentForm.innerHTML = "";
-    db.collection('courses').get().then(data => {
-        let courseArray = data.docs;
-        let dyContent2 = document.querySelector('.dynamicContent2');
-        let html2 = `<article class="col-sm-4 isotopeItem available isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate3d(0px, 0px, 0px);">
-        <div class="portfolio-item">
-            <img src="assets/images/portfolio/img1.jpg" alt="" />
-            <div class="portfolio-desc align-center">
-                <div class="folio-info">
-                    <a href="assets/images/portfolio/img1.jpg" class="fancybox">
-                        <h5>Project Title</h5>
-                        <i class="fa fa-link fa-2x"></i>
-                    </a>
-                </div>
+  })
+
+}
+
+function load_vessel_client(filter) {
+  db.collection('vessels').get().then(data => {
+    let vesselArray = data.docs;
+    let dyContent2 = document.querySelector('#dynamicContent2');
+    dyContent2.innerHTML = ``;
+
+    if (filter == "none") {
+      vesselArray.forEach(vessel => {
+        let html_temp = `<div class="column is-4 available">
+        <div class="card">
+          <header class="card-header">
+            <p class="card-header-title">
+              ${vessel.data().Vessels} - ${vessel.data().Price}
+            </p>
+            <div class="box">
+            ${vessel.data().Status}
             </div>
-        </div>
-    </article>`;
-        dyContent2.innerHTML = html2;
-        console.log("posted");
-    })
+          </header>
+          <div class="card-content">
+            <div class="content">
+            <ul>
+              <li>Bhp/Dwt/Teu: ${vessel.data().Bhp} </li>
+              <li>Dimension: ${vessel.data().Dimensions}</li>
+              <li>Class: ${vessel.data().Dimensions}</li>
+              <li>Engine: ${vessel.data().Engine}</li>
+              <li>Dimension: ${vessel.data().Dimensions}</li>
 
-})
+            </ul>
+          </div>
+          </div> `;
+
+        dyContent2.innerHTML += html_temp;
+        console.log("posted");
+      })
+    } else {
+      vesselArray.forEach(vessel => {
+        if (vessel.data().Status == filter) {
+          let html_temp = `<div class="column is-4">
+          <div class="card">
+            <header class="card-header">
+            <p class="card-header-title">
+            ${vessel.data().Vessels}
+          </p>
+          <div class="box">
+          ${vessel.data().Status}
+        </div>
+      
+            </header>
+            <div class="card-content">
+              <div class="content">
+              <ul>
+              <li>Bhp/Dwt/Teu: ${vessel.data().Bhp} </li>
+              <li>Dimension: ${vessel.data().Dimensions}</li>
+              <li>Class: ${vessel.data().Dimensions}</li>
+              <li>Engine: ${vessel.data().Engine}</li>
+              <li>Dimension: ${vessel.data().Dimensions}</li>
+
+            </ul>
+            </div>
+            </div>`;
+
+          dyContent2.innerHTML += html_temp;
+          console.log("posted");
+        }
+      })
+    }
+
+
+  })
+}
