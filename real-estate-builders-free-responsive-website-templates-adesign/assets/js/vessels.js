@@ -317,7 +317,6 @@ submitcommentform.addEventListener('submit', (e) => {
         Dimensions: dimensions,
         Engine: engine,
         Description: vessel_description,
-        Link: link,
         Picture: url,
         Status: "available"
       }
@@ -325,7 +324,7 @@ submitcommentform.addEventListener('submit', (e) => {
       // add course_details into firebase
 
       db.collection('vessels').add(vessel_details).then((data) => {
-        console.log('vessel added!');
+        alert('vessel added!');
         submitcommentform.reset();
       })
       submitCommentForm.innerHTML = "";
@@ -359,7 +358,7 @@ function load_vessel_admin(filter) {
               <li>Class: ${vessel.data().Dimensions}</li>
               <li>Engine: ${vessel.data().Engine}</li>
               <li>Dimension: ${vessel.data().Dimensions}</li>
-              <li>Dimension: ${vessel.data().Picture}</li>
+              <li><img src="${vessel.data().Picture}" alt="listingImage"></li>
 
             </ul>`;
 
