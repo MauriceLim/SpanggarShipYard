@@ -415,7 +415,7 @@ function load_vessel_admin(filter) {
           <div class="card">
             <header class="card-header">
             <p class="card-header-title">
-            ${vessel.data().Vessel}
+            ${vessel.data().Price}
           </p>
           <div class="box">
           ${vessel.data().Status}
