@@ -242,7 +242,7 @@ function configureNav(user){
     let jobsHTML = ``;
     jobs.forEach((job) => {
         jobsHTML += `                        
-        <a href="/jobs/KvSheGicA4Zk/${job.data().job_keyword}"
+        <a href="/jobs/KvSheGicA4Zk/${job.id}/${job.data().job_keyword}"
         class="heading" data-portal-title="${job.data().job_keyword}"
         data-portal-location="${job.data().located}" data-portal-job-type="${job.data().job_no}"
         data-portal-remote-location=${job.data().remote_work}>
