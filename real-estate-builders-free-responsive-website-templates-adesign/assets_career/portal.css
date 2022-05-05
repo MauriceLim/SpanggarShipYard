@@ -1814,50 +1814,61 @@ input[type="radio"] {
 
 /* The Modal (background) */
 .modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    padding-top: 50px; /* Location of the box */
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 1;
+    /* Sit on top */
+    padding-top: 50px;
+    /* Location of the box */
     left: 0;
     top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-  }
-  
-  /* Modal Content */
-  .modal-content {
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
     background-color: #fefefe;
     margin: auto;
     padding: 20px;
     border: 1px solid #888;
     width: 80%;
     height: 85%;
-  }
-  
-  /* The Close Button */
-  .close {
+}
+
+/* The Close Button */
+.close {
     color: #aaaaaa;
     float: right;
     font-size: 28px;
     font-weight: bold;
-  }
-  
-  .close:hover,
-  .close:focus {
+}
+
+.close:hover,
+.close:focus {
     color: #000;
     text-decoration: none;
     cursor: pointer;
-  }
+}
 
 .field-column {
     width: 50%;
     float: left;
 }
 
-input, select, textarea {
+input,
+select,
+textarea {
     display: block;
     width: 80%;
     padding: 5px;
@@ -1880,7 +1891,11 @@ input, select, textarea {
 
 .is-hidden {
     display: none;
+<<<<<<< HEAD
 } 
+=======
+}
+>>>>>>> b4ba44b935b64c2d5a694ed1d0be3f05d30120b0
 
 .button {
     display: inline-block;
@@ -1894,32 +1909,32 @@ input, select, textarea {
     width: 150px;
     transition: all 0.5s;
     cursor: pointer;
-  }
+}
 
-  .button span {
+.button span {
     cursor: pointer;
     display: inline-block;
     position: relative;
     transition: 0.5s;
-  }
-  
-  .button span:after {
+}
+
+.button span:after {
     content: '\00bb';
     position: absolute;
     opacity: 0;
     top: 0;
     right: -20px;
     transition: 0.5s;
-  }
-  
-  .button:hover span {
+}
+
+.button:hover span {
     padding-right: 25px;
-  }
-  
-  .button:hover span:after {
+}
+
+.button:hover span:after {
     opacity: 1;
     right: 0;
-  }
+}
 
 #job-modal-header {
     text-align: center;
@@ -1963,8 +1978,13 @@ input, select, textarea {
     outline: none;
     display: block;
     cursor: pointer;
+<<<<<<< HEAD
     height:25px;
     width:100px;
+=======
+    height: 25px;
+    width: 100px;
+>>>>>>> b4ba44b935b64c2d5a694ed1d0be3f05d30120b0
 }
 
 #myBtn2:hover {

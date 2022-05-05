@@ -241,7 +241,6 @@ db.collection('jobs_available').get().then((data) => {
     let jobs = data.docs;
     let jobsHTML = ``;
     jobs.forEach((job) => {
-
         jobsHTML += `                        
         <a href="/jobs/KvSheGicA4Zk/${job.id}/${job.data().job_keyword}"
         class="heading" data-portal-title="${job.data().job_keyword}"

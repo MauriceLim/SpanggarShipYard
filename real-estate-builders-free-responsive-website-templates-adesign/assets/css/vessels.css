@@ -69,7 +69,11 @@
 }
 
 .card {
+<<<<<<< HEAD
     height: 620px;
+=======
+    height: 500px;
+>>>>>>> b4ba44b935b64c2d5a694ed1d0be3f05d30120b0
     overflow-x: auto;
     overflow-y: auto;
 }
@@ -78,6 +82,7 @@
     height: 120px;
     overflow-x: auto;
     overflow-y: auto;
+<<<<<<< HEAD
 } */
 
 .sortlinks {
@@ -86,3 +91,6 @@
     border: 3px solid red;
     padding: 10px;
 }
+=======
+} */
+>>>>>>> b4ba44b935b64c2d5a694ed1d0be3f05d30120b0
