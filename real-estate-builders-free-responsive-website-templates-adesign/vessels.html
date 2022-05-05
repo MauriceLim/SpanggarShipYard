@@ -24,9 +24,14 @@
 	<script src="assets/js/html5shiv.js"></script>
 	<script src="assets/js/respond.min.js"></script>
 	<![endif]-->
+	<style>
+		h5 {
+			color: white;
+		}
+	</style>
 </head>
 
-<body>
+<body style="background-color: rgb(176, 1, 1);">
 	<!-- Fixed navbar -->
 	<div class="navbar navbar-inverse">
 		<div class="container">
@@ -72,108 +77,52 @@
 	<section class="container">
 		<div class="row">
 			<div class="col-md-12">
-				<section id="portfolio" class="page-section section appear sold">
+				<section id="portfolio" class="page-section section appear clearfix">
 					<br />
 					<br />
-					<p>
-						At lorem Ipsum available, but the majority have suffered alteration in some form by injected
-						huffered altehe majority have suffered alteration in some form by injected huffered alteration
-						in some form by injected humour.uffered alteration in some form by injected h
+					<p style="text-align: center; color: white; font-size: medium;">
+						Sapangar Shipyard is dedicating to producing quality vessels for our customers. To inquire about
+						any of our vessels please email example@email.com
 						<br />
 						<br />
 					</p>
 
 
+
 					<div class="row">
-						<nav id="filter" class="col-md-12 text-center">
+						<div>
 							<ul>
-								<li><a href="#" class="current btn-theme btn-small" data-filter="*">All</a></li>
-								<li><a href="#" class="btn-theme btn-small" data-filter=".available">Available</a></li>
-								<li><a href="#" class="btn-theme btn-small" data-filter=".sold">Sold</a>
+								<li class="sortlink">
+									<a href="#" class="button btn-small sortlinks" id="all">All</a>
+									<a href="#" class="button btn-small sortlinks" id="available">Available</a>
+									<a href="#" class="button btn-small sortlinks" id="sold">Sold</a>
 								</li>
+
 							</ul>
-						</nav>
-						<div class="col-md-12">
-							<div class="row">
-								<div class="portfolio-items isotopeWrapper sold" id="3">
-
-									<article class="col-sm-4 isotopeItem photography">
-										<div class="portfolio-item">
-											<img src="assets/images/portfolio/img1.jpg" alt="" />
-											<div class="portfolio-desc align-center">
-												<div class="folio-info">
-													<a href="assets/images/portfolio/img1.jpg" class="fancybox">
-														<h5>Vessel Title</h5>
-														<h5>Sold</h5>
-														<i class="fa fa-link fa-2x"></i>
-													</a>
-												</div>
-											</div>
-										</div>
-									</article>
-
-									<article class="col-sm-4 isotopeItem available">
-										<div class="portfolio-item">
-											<img src="assets/images/portfolio/img2.jpg" alt="" />
-											<div class="portfolio-desc align-center">
-												<div class="folio-info">
-													<a href="assets/images/portfolio/img2.jpg" class="fancybox">
-														<h5>Vessel 2</h5>
-														<h5>Available</h5>
-														<i class="fa fa-link fa-2x"></i>
-													</a>
-												</div>
-											</div>
-										</div>
-									</article>
-
-
-									<article class="col-sm-4 isotopeItem photography">
-										<div class="portfolio-item">
-											<img src="assets/images/portfolio/img3.jpg" alt="" />
-											<div class="portfolio-desc align-center">
-												<div class="folio-info">
-													<div id="ModalLink">
-														<h5>Vessel 3</h5>
-														<h5>Sold</h5>
-														<i class="fa fa-link fa-2x"></i>
-
-													</div>
-												</div>
-											</div>
-										</div>
-									</article>
-
-								</div>
-
-
-								<!-- The Modal -->
-								<div id="myModal" class="modal">
-
-									<!-- Modal content -->
-									<div class="modal-content">
-										<span class="close">&times;</span>
-										<p>Some text in the Modal..</p>
-									</div>
-
-								</div>
-
-								<div id="vesselsDiv">
-									<p>test vess</p>
-
-								</div>
-
-							</div>
-
 
 						</div>
-					</div>
 
-				</section>
+
+						<div class="container" id="dynamicContent2">
+
+						</div>
+						</ul>
+
+
+
+					</div>
 			</div>
 		</div>
+		<div class="section">
+			<div class="container" id="hidden_form">
+				<form id="submitcommentform"></form>
+			</div>
+			<div class="container" id="dynamicContent">
 
+			</div>
+		</div>
 	</section>
+
 	<!-- /container -->
 
 	<footer id="footer">
@@ -218,6 +167,118 @@
 				<!-- /row of panels -->
 			</div>
 		</div>
+		<div class="modal" id="signout-modal">
+			<div class="modal-background" id="signout-modalbg"></div>
+			<div class="modal-content p-6 has-background-white">
+				<h1 class="is-size-3 title">Sign out!</h1>
+
+			</div>
+		</div>
+
+
+
+		<!--  sign up modal ... are hidden by default ... use javascript to display/hide them -->
+		<div class="modal" id="signup-modal">
+			<div class="modal-background" id="signup-modalbg"></div>
+			<div class="modal-content p-6 has-background-white">
+				<h1 class="is-size-3 title">Sign Up!</h1>
+				<form id="signup_form">
+					<!-- Email -->
+					<div class="field">
+						<label class="label">Email</label>
+						<div class="control">
+							<input type="email" id="email" placeholder="enter @wisc.edu email">
+						</div>
+
+					</div>
+					<!-- Password -->
+					<div class="field">
+						<label class="label">Passowrd</label>
+						<div class="control">
+							<input type="password" id="password">
+						</div>
+					</div>
+
+
+					<!-- submit -->
+					<div class="field">
+						<div class="control">
+							<button class="m-3 button is-link" id="sum_submit">Submit</button>
+						</div>
+					</div>
+
+					<!-- div error -->
+					<div class="error has-text-danger" id="signup_error">
+
+					</div>
+
+				</form>
+			</div>
+		</div>
+
+		<!-- sign in modal -->
+
+		<div class="modal" id="signin-modal">
+			<div class="modal-background" id="signin-modalbg"></div>
+			<div class="modal-content p-6 has-background-white">
+				<h1 class="is-size-3 title">Sign In!</h1>
+				<form id="signin_form">
+					<!-- Email -->
+					<div class="field">
+						<label class="label">Email</label>
+						<div class="control">
+							<input type="email" id="email_">
+						</div>
+
+					</div>
+					<!-- Password -->
+					<div class="field">
+						<label class="label">Passowrd</label>
+						<div class="control">
+							<input type="password" id="password_">
+						</div>
+					</div>
+
+
+					<!-- submit -->
+					<div class="field">
+						<div class="control">
+							<button class="m-3 button is-link">Submit</button>
+						</div>
+					</div>
+
+					<div class="error has-text-danger" id="signin_error">
+
+					</div>
+
+				</form>
+			</div>
+		</div>
+
+
+		<div class="buttons">
+
+			<a class="button is-black loggedin" id="welcome_user">
+
+			</a>
+
+			<a class="button is-black loggedin" id="postcommentbtn">
+				<strong>Post New Vessel</strong>
+			</a>
+			<a class="button is-light loggedin" id="signoutbtn">
+				Sign Out
+			</a>
+			<a class="button loggedout" id="signupbtn">
+				Sign Up
+			</a>
+			<a class="button is-light loggedout" id="signinbtn">
+				Sign in
+			</a>
+		</div>
+
+		<!-- center -->
+
+
 	</footer>
 
 

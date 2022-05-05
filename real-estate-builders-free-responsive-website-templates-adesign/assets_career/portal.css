@@ -1864,13 +1864,23 @@ input, select, textarea {
 }
 
 #description {
-    width: 90%;
+    width: 100%;
 }
 
 #form-button {
     width: 100%;
     padding: 10px 0px;
 }
+
+#job-form-button {
+    width: 100%;
+    float: none;
+    padding: 10px 0px;
+}
+
+.is-hidden {
+    display: none;
+} 
 
 .button {
     display: inline-block;
@@ -1917,7 +1927,11 @@ input, select, textarea {
 }
 
 #modal-label {
-    padding: 5px 0px;
+    padding: 2px 0px;
+}
+
+#remote {
+    margin: 0px;
 }
 
 #myBtn {
@@ -1933,3 +1947,39 @@ input, select, textarea {
     color: white;
 }
 
+#sign-modal-header {
+    text-align: left;
+    color: black;
+}
+
+#myBtn2 {
+    /* background-color: #339DFF;
+    transition-duration: 0.4s;
+    border-radius: 4px;
+    border: 1px solid #339DFF;
+    padding: 5px; */
+    background: transparent;
+    border: none;
+    outline: none;
+    display: block;
+    cursor: pointer;
+    height:25px;
+    width:100px;
+}
+
+#myBtn2:hover {
+    color: white;
+}
+
+#myBtn3 {
+    background-color: #339DFF;
+    transition-duration: 0.4s;
+    border-radius: 4px;
+    border: 1px solid #339DFF;
+    padding: 5px;
+}
+
+#myBtn3:hover {
+    background-color: #339DFF;
+    color: white;
+}
