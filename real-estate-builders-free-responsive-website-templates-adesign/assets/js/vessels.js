@@ -361,7 +361,7 @@ function load_vessel_admin(filter) {
             <div class="portfolio-desc align-center">
                 <div class="folio-info">
                     <a href="${vessel.data().Picture}" class="fancybox">
-                        <h5>${vessel.data().Vessel}</h5>
+                        <h5 style="color:blue;">${vessel.data().Vessel}</h5>
                         <i class="fa fa-link fa-2x"></i>
                     </a>
                 </div>
@@ -556,7 +556,6 @@ function load_vessel_client(filter) {
               <li>Dimension: ${vessel.data().Dimensions}</li>
               <li>Class: ${vessel.data().Dimensions}</li>
               <li>Engine: ${vessel.data().Engine}</li>
-              <li>Dimension: ${vessel.data().Dimensions}</li>
             </ul>
             <p>${vessel.data().Description}</p>
             </div>

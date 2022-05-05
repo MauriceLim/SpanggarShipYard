@@ -79,3 +79,10 @@
     overflow-x: auto;
     overflow-y: auto;
 } */
+
+.sortlinks {
+    margin: auto;
+    width: 33%;
+    border: 3px solid red;
+    padding: 10px;
+}
