@@ -203,44 +203,45 @@
 let loggedoutlinks = document.querySelectorAll('.loggedout');
 let loggedinlinks = document.querySelectorAll('.loggedin');
 
-function configureNav(user){
+function configureNav(user) {
     // check if user is signed in
-    if(user) {
-      document.querySelector('#welcome').innerHTML = `Signed in as: ${auth.currentUser.email}`
-      document.querySelector('#message').innerHTML = "";
-      // show all loggedin links
-      loggedinlinks.forEach((link) => {
-        link.classList.remove('is-hidden');
-      })
-      
-      // hide all loggedout links
-      loggedoutlinks.forEach((link) => {
-        link.classList.add('is-hidden');
-      })
+    if (user) {
+        document.querySelector('#welcome').innerHTML = `Signed in as: ${auth.currentUser.email}`
+        document.querySelector('#message').innerHTML = "";
+        // show all loggedin links
+        loggedinlinks.forEach((link) => {
+            link.classList.remove('is-hidden');
+        })
+
+        // hide all loggedout links
+        loggedoutlinks.forEach((link) => {
+            link.classList.add('is-hidden');
+        })
     }
     // if no user is signed in
-    else{
-      document.querySelector('#welcome').innerHTML = "";
-      document.querySelector('#message').innerHTML = "please log in to view the listings";
-      // show all the loggedout links
-      loggedoutlinks.forEach((link) => {
-        link.classList.remove('is-hidden');
-      })
-      
-  
-      // hide all loggedin links
-      loggedinlinks.forEach((link) => {
-        link.classList.add('is-hidden');
-      })
+    else {
+        document.querySelector('#welcome').innerHTML = "";
+        document.querySelector('#message').innerHTML = "please log in to view the listings";
+        // show all the loggedout links
+        loggedoutlinks.forEach((link) => {
+            link.classList.remove('is-hidden');
+        })
+
+
+        // hide all loggedin links
+        loggedinlinks.forEach((link) => {
+            link.classList.add('is-hidden');
+        })
     }
-  }
+}
 
-  let jobsPage = document.querySelector(".job-list");
+let jobsPage = document.querySelector(".job-list");
 
-  db.collection('jobs_available').get().then((data) => {
+db.collection('jobs_available').get().then((data) => {
     let jobs = data.docs;
     let jobsHTML = ``;
     jobs.forEach((job) => {
+
         jobsHTML += `                        
         <a href="/jobs/KvSheGicA4Zk/${job.id}/${job.data().job_keyword}"
         class="heading" data-portal-title="${job.data().job_keyword}"
@@ -266,18 +267,18 @@ function configureNav(user){
             </div>
         </div>
     </a>`;
-        })
-    jobsPage.innerHTML += jobsHTML;
     })
+    jobsPage.innerHTML += jobsHTML;
+})
 
-    // let joblistingDetails = {
-    //     departmentName: deptStr,
-    //     job_description: desc,
-    //     job_title: jobTitle,
-    //     job_type: workTypeStr,
-    //     job_no: jobNo,
-    //     located: locationStr,
-    // }
+// let joblistingDetails = {
+//     departmentName: deptStr,
+//     job_description: desc,
+//     job_title: jobTitle,
+//     job_type: workTypeStr,
+//     job_no: jobNo,
+//     located: locationStr,
+// }
 
 
 // Get the modal
@@ -347,15 +348,15 @@ newjobform.addEventListener('submit', (e) => {
 
     if (workTypeStr == "Full Time") {
         jobNo = 2;
-      } else {
+    } else {
         jobNo = 3;
-      }
+    }
 
     if (remote == "1") {
         remote = true;
-      } else {
+    } else {
         remote = false;
-      }
+    }
 
 
     let joblistingDetails = {
@@ -381,21 +382,21 @@ newjobform.addEventListener('submit', (e) => {
 
 let signInForm = document.querySelector("#signinForm");
 
-signInForm.addEventListener('submit', (e) =>{
-  e.preventDefault();
+signInForm.addEventListener('submit', (e) => {
+    e.preventDefault();
 
-  let email = document.querySelector("#email").value;
-  let password = document.querySelector("#password").value;
+    let email = document.querySelector("#email").value;
+    let password = document.querySelector("#password").value;
 
-  auth.signInWithEmailAndPassword(email, password)
-    .then((userCredentials) => {
-      alert("Welcome " + userCredentials.user.email + " with the ID " + userCredentials.user.uid + ", you have successfully signed in")
+    auth.signInWithEmailAndPassword(email, password)
+        .then((userCredentials) => {
+            alert("Welcome " + userCredentials.user.email + " with the ID " + userCredentials.user.uid + ", you have successfully signed in")
 
 
-      // reset
-      signUpForm.reset();
-      window.location.reload()
-    })
+            // reset
+            signUpForm.reset();
+            window.location.reload()
+        })
 
 })
 
@@ -403,11 +404,11 @@ signInForm.addEventListener('submit', (e) =>{
 let signoutbtn = document.querySelector("#myBtn3");
 
 signoutbtn.addEventListener('click', () => {
-  auth.signOut()
-    .then((msg) => {
-      alert("You have successfully signed out");
-      window.location.reload()
-    })
+    auth.signOut()
+        .then((msg) => {
+            alert("You have successfully signed out");
+            window.location.reload()
+        })
 })
 
 // signing up users
@@ -415,30 +416,29 @@ signoutbtn.addEventListener('click', () => {
 let signUpForm = document.querySelector("#signinForm");
 
 signUpForm.addEventListener('submit', (e) => {
-  e.preventDefault();
+    e.preventDefault();
 
-  let email = document.querySelector('#email_').value;
-  let password = document.querySelector('#password_').value;
+    let email = document.querySelector('#email_').value;
+    let password = document.querySelector('#password_').value;
 
-  auth.createUserWithEmailAndPassword(email, password).then(() => {
-    alert("Account has been created successfully");
+    auth.createUserWithEmailAndPassword(email, password).then(() => {
+        alert("Account has been created successfully");
 
 
-    // reset the form
-    signUpForm.reset();
+        // reset the form
+        signUpForm.reset();
 
-  })
+    })
 })
 
 // authentication status
 
 auth.onAuthStateChanged((user) => {
     if (user) {
-      console.log('user is now signed in');
-      configureNav(user);
+        console.log('user is now signed in');
+        configureNav(user);
     } else {
-      console.log('user is now signed out');
-      configureNav();
+        console.log('user is now signed out');
+        configureNav();
     }
-  })
-
+})
