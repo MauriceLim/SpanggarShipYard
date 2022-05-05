@@ -412,7 +412,7 @@ function load_vessel_admin(filter) {
               <li>Class: ${vessel.data().Dimensions}</li>
               <li>Engine: ${vessel.data().Engine}</li>
               <li>Dimension: ${vessel.data().Dimensions}</li>
-
+              <li><img src="${vessel.data().Picture}" alt="listingImage"></li>
             </ul>`;
 
           if (vessel.data().Status != "sold") {
@@ -477,7 +477,7 @@ function load_vessel_client(filter) {
               <li>Class: ${vessel.data().Dimensions}</li>
               <li>Engine: ${vessel.data().Engine}</li>
               <li>Dimension: ${vessel.data().Dimensions}</li>
-
+              <li><img src="${vessel.data().Picture}" alt="listingImage"></li>
             </ul>
           </div>
           </div> `;
@@ -507,7 +507,7 @@ function load_vessel_client(filter) {
               <li>Class: ${vessel.data().Dimensions}</li>
               <li>Engine: ${vessel.data().Engine}</li>
               <li>Dimension: ${vessel.data().Dimensions}</li>
-
+              <li><img src="${vessel.data().Picture}" alt="listingImage"></li>
             </ul>
             </div>
             </div>`;
