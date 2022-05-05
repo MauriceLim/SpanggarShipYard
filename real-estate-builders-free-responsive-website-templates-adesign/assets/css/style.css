@@ -734,6 +734,7 @@ nav#filter a.current {
 }
 
 .portfolio-item img {
+	height: 300px;
 	-webkit-transition: all 300ms linear;
 	-moz-transition: all 300ms linear;
 	-o-transition: all 300ms linear;

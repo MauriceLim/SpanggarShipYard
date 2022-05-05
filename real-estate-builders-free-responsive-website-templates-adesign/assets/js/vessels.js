@@ -20,6 +20,13 @@ function configureNav(user) {
       link.classList.add('is-hidden');
     })
 
+    let soldbutton = document.querySelectorAll('.soldbtn');
+    console.log(soldbutton);
+    soldbutton.forEach(btn => {
+      btn.classList.add('is-hidden');
+    })
+
+
 
   }
   //no user is passed to the function (user is signed out)
@@ -34,6 +41,12 @@ function configureNav(user) {
 
     loggedOutLinks.forEach(link => {
       link.classList.remove('is-hidden');
+    })
+
+    let soldbutton = document.querySelectorAll('.soldbtn');
+
+    soldbutton.forEach(btn => {
+      btn.classList.add('is-hidden');
     })
   }
 }
@@ -366,7 +379,7 @@ function load_vessel_admin(filter) {
                     </a>
                 </div>
             </div>
-        </div>
+            </div>
             <ul>
               <li>Bhp/Dwt/Teu: ${vessel.data().Bhp} </li>
               <li>Dimension: ${vessel.data().Dimensions}</li>
