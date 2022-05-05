@@ -1891,7 +1891,11 @@ textarea {
 
 .is-hidden {
     display: none;
+<<<<<<< HEAD
+} 
+=======
 }
+>>>>>>> b4ba44b935b64c2d5a694ed1d0be3f05d30120b0
 
 .button {
     display: inline-block;
@@ -1974,8 +1978,13 @@ textarea {
     outline: none;
     display: block;
     cursor: pointer;
+<<<<<<< HEAD
+    height:25px;
+    width:100px;
+=======
     height: 25px;
     width: 100px;
+>>>>>>> b4ba44b935b64c2d5a694ed1d0be3f05d30120b0
 }
 
 #myBtn2:hover {

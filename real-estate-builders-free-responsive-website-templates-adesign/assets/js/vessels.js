@@ -20,6 +20,8 @@ function configureNav(user) {
       link.classList.add('is-hidden');
     })
 
+<<<<<<< HEAD
+=======
     let soldbutton = document.querySelectorAll('.soldbtn');
     console.log(soldbutton);
     soldbutton.forEach(btn => {
@@ -27,6 +29,7 @@ function configureNav(user) {
     })
 
 
+>>>>>>> b4ba44b935b64c2d5a694ed1d0be3f05d30120b0
 
   }
   //no user is passed to the function (user is signed out)
@@ -42,12 +45,15 @@ function configureNav(user) {
     loggedOutLinks.forEach(link => {
       link.classList.remove('is-hidden');
     })
+<<<<<<< HEAD
+=======
 
     let soldbutton = document.querySelectorAll('.soldbtn');
 
     soldbutton.forEach(btn => {
       btn.classList.add('is-hidden');
     })
+>>>>>>> b4ba44b935b64c2d5a694ed1d0be3f05d30120b0
   }
 }
 
@@ -359,7 +365,11 @@ function load_vessel_admin(filter) {
         <div class="card">
           <header class="card-header">
             <p class="card-header-title">
+<<<<<<< HEAD
+               RM${vessel.data().Price}
+=======
                RM ${vessel.data().Price}
+>>>>>>> b4ba44b935b64c2d5a694ed1d0be3f05d30120b0
             </p>
             <div class="box">
             ${vessel.data().Status}
@@ -374,11 +384,24 @@ function load_vessel_admin(filter) {
             <div class="portfolio-desc align-center">
                 <div class="folio-info">
                     <a href="${vessel.data().Picture}" class="fancybox">
+<<<<<<< HEAD
+                        <h5 style="color:blue;">${vessel.data().Vessel}</h5>
+=======
                         <h5>${vessel.data().Vessel}</h5>
+>>>>>>> b4ba44b935b64c2d5a694ed1d0be3f05d30120b0
                         <i class="fa fa-link fa-2x"></i>
                     </a>
                 </div>
             </div>
+<<<<<<< HEAD
+        </div>
+            <ul>
+              <li>Bhp/Dwt/Teu: ${vessel.data().Bhp} </li>
+              <li>Dimension: ${vessel.data().Dimensions}</li>
+              <li>Class: ${vessel.data().Class}</li>
+              <li>Engine: ${vessel.data().Engine}</li>
+              
+=======
             </div>
             <ul>
               <li>Bhp/Dwt/Teu: ${vessel.data().Bhp} </li>
@@ -386,6 +409,7 @@ function load_vessel_admin(filter) {
               <li>Class: ${vessel.data().Dimensions}</li>
               <li>Engine: ${vessel.data().Engine}</li>
               <li>Dimension: ${vessel.data().Dimensions}</li>
+>>>>>>> b4ba44b935b64c2d5a694ed1d0be3f05d30120b0
 
 
             </ul>
@@ -428,7 +452,11 @@ function load_vessel_admin(filter) {
           <div class="card">
             <header class="card-header">
             <p class="card-header-title">
+<<<<<<< HEAD
+            ${vessel.data().Price}
+=======
             ${vessel.data().Vessel}
+>>>>>>> b4ba44b935b64c2d5a694ed1d0be3f05d30120b0
           </p>
           <div class="box">
           ${vessel.data().Status}
@@ -451,9 +479,15 @@ function load_vessel_admin(filter) {
               <ul>
               <li>Bhp/Dwt/Teu: ${vessel.data().Bhp} </li>
               <li>Dimension: ${vessel.data().Dimensions}</li>
+<<<<<<< HEAD
+              <li>Class: ${vessel.data().Class}</li>
+              <li>Engine: ${vessel.data().Engine}</li>
+              
+=======
               <li>Class: ${vessel.data().Dimensions}</li>
               <li>Engine: ${vessel.data().Engine}</li>
               <li>Dimension: ${vessel.data().Dimensions}</li>
+>>>>>>> b4ba44b935b64c2d5a694ed1d0be3f05d30120b0
                           </ul>`;
 
           if (vessel.data().Status != "sold") {
@@ -504,7 +538,11 @@ function load_vessel_client(filter) {
         <div class="card">
           <header class="card-header">
             <p class="card-header-title">
+<<<<<<< HEAD
+              RM${vessel.data().Price}
+=======
               RM ${vessel.data().Price}
+>>>>>>> b4ba44b935b64c2d5a694ed1d0be3f05d30120b0
             </p>
             <div class="box">
             ${vessel.data().Status}
@@ -526,9 +564,15 @@ function load_vessel_client(filter) {
             <ul>
               <li>Bhp/Dwt/Teu: ${vessel.data().Bhp} </li>
               <li>Dimension: ${vessel.data().Dimensions}</li>
+<<<<<<< HEAD
+              <li>Class: ${vessel.data().Class}</li>
+              <li>Engine: ${vessel.data().Engine}</li>
+              
+=======
               <li>Class: ${vessel.data().Dimensions}</li>
               <li>Engine: ${vessel.data().Engine}</li>
               <li>Dimension: ${vessel.data().Dimensions}</li>
+>>>>>>> b4ba44b935b64c2d5a694ed1d0be3f05d30120b0
             </ul>
             <p>${vessel.data().Description}</p>
           </div>
@@ -544,7 +588,11 @@ function load_vessel_client(filter) {
           <div class="card">
             <header class="card-header">
             <p class="card-header-title">
+<<<<<<< HEAD
+            RM${vessel.data().Price}
+=======
             RM ${vessel.data().Price}
+>>>>>>> b4ba44b935b64c2d5a694ed1d0be3f05d30120b0
           </p>
           <div class="box">
           ${vessel.data().Status}
@@ -567,9 +615,14 @@ function load_vessel_client(filter) {
               <ul>
               <li>Bhp/Dwt/Teu: ${vessel.data().Bhp} </li>
               <li>Dimension: ${vessel.data().Dimensions}</li>
+<<<<<<< HEAD
+              <li>Class: ${vessel.data().Class}</li>
+              <li>Engine: ${vessel.data().Engine}</li>
+=======
               <li>Class: ${vessel.data().Dimensions}</li>
               <li>Engine: ${vessel.data().Engine}</li>
               <li>Dimension: ${vessel.data().Dimensions}</li>
+>>>>>>> b4ba44b935b64c2d5a694ed1d0be3f05d30120b0
             </ul>
             <p>${vessel.data().Description}</p>
             </div>
