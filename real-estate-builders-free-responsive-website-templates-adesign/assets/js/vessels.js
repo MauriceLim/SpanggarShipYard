@@ -346,7 +346,7 @@ function load_vessel_admin(filter) {
         <div class="card">
           <header class="card-header">
             <p class="card-header-title">
-               RM${vessel.data().Price}
+               RM ${vessel.data().Price}
             </p>
             <div class="box">
             ${vessel.data().Status}
@@ -491,7 +491,7 @@ function load_vessel_client(filter) {
         <div class="card">
           <header class="card-header">
             <p class="card-header-title">
-              RM${vessel.data().Price}
+              RM ${vessel.data().Price}
             </p>
             <div class="box">
             ${vessel.data().Status}
@@ -531,7 +531,7 @@ function load_vessel_client(filter) {
           <div class="card">
             <header class="card-header">
             <p class="card-header-title">
-            ${vessel.data().Vessel}
+            RM ${vessel.data().Price}
           </p>
           <div class="box">
           ${vessel.data().Status}
