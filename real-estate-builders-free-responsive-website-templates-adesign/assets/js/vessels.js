@@ -328,8 +328,10 @@ submitcommentform.addEventListener('submit', (e) => {
         submitcommentform.reset();
       })
       submitCommentForm.innerHTML = "";
-      load_vessel("none");
+
+      load_vessel_admin("none");
     })
+
 })
 
 function load_vessel_admin(filter) {
@@ -344,31 +346,47 @@ function load_vessel_admin(filter) {
         <div class="card">
           <header class="card-header">
             <p class="card-header-title">
-              ${vessel.data().Vessels} - ${vessel.data().Price}
+               RM${vessel.data().Price}
             </p>
             <div class="box">
             ${vessel.data().Status}
             </div>
           </header>
+         
           <div class="card-content">
+          
             <div class="content">
+            <div class="portfolio-item">
+            <img src="${vessel.data().Picture}" alt="" />
+            <div class="portfolio-desc align-center">
+                <div class="folio-info">
+                    <a href="${vessel.data().Picture}" class="fancybox">
+                        <h5>${vessel.data().Vessel}</h5>
+                        <i class="fa fa-link fa-2x"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
             <ul>
               <li>Bhp/Dwt/Teu: ${vessel.data().Bhp} </li>
               <li>Dimension: ${vessel.data().Dimensions}</li>
               <li>Class: ${vessel.data().Dimensions}</li>
               <li>Engine: ${vessel.data().Engine}</li>
               <li>Dimension: ${vessel.data().Dimensions}</li>
-              <li><img src="${vessel.data().Picture}" alt="listingImage"></li>
 
-            </ul>`;
+
+            </ul>
+            `;
 
         if (vessel.data().Status != "sold") {
-          html_temp += `            </div>
+          html_temp += `<p>${vessel.data().Description}</p>  
+          </div>
           </div>
           <footer class="card-footer">
-          <p class="card-footer-item">
+          
+          <p class="card-footer-item">  
       <span>
-        <a class="button is-large" id="soldbtn">SOLD</a>
+        <a class="button is-large soldbtn">SOLD</a>
       </span>
     </p>
             </footer>
@@ -376,13 +394,13 @@ function load_vessel_admin(filter) {
         </div>
       </div>`;
         } else {
-          html_temp += `</div>
+          html_temp += `<p>${vessel.data().Description}</p></div>
           </div><footer class="card-footer">
           <p class="card-footer-item">
       <span>
       </span>
     </p>
-            </footer>
+            </footer> 
     
         </div>
       </div>`;
@@ -397,7 +415,7 @@ function load_vessel_admin(filter) {
           <div class="card">
             <header class="card-header">
             <p class="card-header-title">
-            ${vessel.data().Vessels}
+            ${vessel.data().Vessel}
           </p>
           <div class="box">
           ${vessel.data().Status}
@@ -406,22 +424,32 @@ function load_vessel_admin(filter) {
             </header>
             <div class="card-content">
               <div class="content">
+              <div class="portfolio-item">
+            <img src="${vessel.data().Picture}" alt="" />
+            <div class="portfolio-desc align-center">
+                <div class="folio-info">
+                    <a href="${vessel.data().Picture}" class="fancybox">
+                        <h5>${vessel.data().Vessel}</h5>
+                        <i class="fa fa-link fa-2x"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
               <ul>
               <li>Bhp/Dwt/Teu: ${vessel.data().Bhp} </li>
               <li>Dimension: ${vessel.data().Dimensions}</li>
               <li>Class: ${vessel.data().Dimensions}</li>
               <li>Engine: ${vessel.data().Engine}</li>
               <li>Dimension: ${vessel.data().Dimensions}</li>
-              <li><img src="${vessel.data().Picture}" alt="listingImage"></li>
-            </ul>`;
+                          </ul>`;
 
           if (vessel.data().Status != "sold") {
-            html_temp += `            </div>
+            html_temp += `<p>${vessel.data().Description}</p> </div>
               </div>
               <footer class="card-footer">
               <p class="card-footer-item">
           <span>
-            <a class="button is-large" id="soldbtn">SOLD</a>
+            <a class="button is-large soldbtn">SOLD</a>
           </span>
         </p>
                 </footer>
@@ -429,7 +457,7 @@ function load_vessel_admin(filter) {
             </div>
           </div>`;
           } else {
-            html_temp += `</div>
+            html_temp += `<p>${vessel.data().Description}</p></div>
               </div><footer class="card-footer">
               <p class="card-footer-item">
           <span>
@@ -463,7 +491,7 @@ function load_vessel_client(filter) {
         <div class="card">
           <header class="card-header">
             <p class="card-header-title">
-              ${vessel.data().Vessels} - ${vessel.data().Price}
+              RM${vessel.data().Price}
             </p>
             <div class="box">
             ${vessel.data().Status}
@@ -471,14 +499,25 @@ function load_vessel_client(filter) {
           </header>
           <div class="card-content">
             <div class="content">
+            <div class="portfolio-item">
+            <img src="${vessel.data().Picture}" alt="" />
+            <div class="portfolio-desc align-center">
+                <div class="folio-info">
+                    <a href="${vessel.data().Picture}" class="fancybox">
+                        <h5>${vessel.data().Vessel}</h5>
+                        <i class="fa fa-link fa-2x"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
             <ul>
               <li>Bhp/Dwt/Teu: ${vessel.data().Bhp} </li>
               <li>Dimension: ${vessel.data().Dimensions}</li>
               <li>Class: ${vessel.data().Dimensions}</li>
               <li>Engine: ${vessel.data().Engine}</li>
               <li>Dimension: ${vessel.data().Dimensions}</li>
-              <li><img src="${vessel.data().Picture}" alt="listingImage"></li>
             </ul>
+            <p>${vessel.data().Description}</p>
           </div>
           </div> `;
 
@@ -492,7 +531,7 @@ function load_vessel_client(filter) {
           <div class="card">
             <header class="card-header">
             <p class="card-header-title">
-            ${vessel.data().Vessels}
+            ${vessel.data().Vessel}
           </p>
           <div class="box">
           ${vessel.data().Status}
@@ -501,14 +540,25 @@ function load_vessel_client(filter) {
             </header>
             <div class="card-content">
               <div class="content">
+              <div class="portfolio-item">
+            <img src="${vessel.data().Picture}" alt="" />
+            <div class="portfolio-desc align-center">
+                <div class="folio-info">
+                    <a href="${vessel.data().Picture}" class="fancybox">
+                        <h5>${vessel.data().Vessel}</h5>
+                        <i class="fa fa-link fa-2x"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
               <ul>
               <li>Bhp/Dwt/Teu: ${vessel.data().Bhp} </li>
               <li>Dimension: ${vessel.data().Dimensions}</li>
               <li>Class: ${vessel.data().Dimensions}</li>
               <li>Engine: ${vessel.data().Engine}</li>
               <li>Dimension: ${vessel.data().Dimensions}</li>
-              <li><img src="${vessel.data().Picture}" alt="listingImage"></li>
             </ul>
+            <p>${vessel.data().Description}</p>
             </div>
             </div>`;
 
@@ -521,3 +571,7 @@ function load_vessel_client(filter) {
 
   })
 }
+
+
+let soldLinks = document.getElementsByClassName('.soldbtn');
+console.log(soldLinks);

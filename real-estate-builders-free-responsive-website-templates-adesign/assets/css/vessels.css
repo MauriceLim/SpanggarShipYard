@@ -63,3 +63,19 @@
 .container {
     padding-left: 0 !important;
 }
+
+.card-footer {
+    margin-top: 0 !important;
+}
+
+.card {
+    height: 620px;
+    overflow-x: auto;
+    overflow-y: auto;
+}
+
+/* .card p {
+    height: 120px;
+    overflow-x: auto;
+    overflow-y: auto;
+} */
