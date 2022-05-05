@@ -370,9 +370,9 @@ function load_vessel_admin(filter) {
             <ul>
               <li>Bhp/Dwt/Teu: ${vessel.data().Bhp} </li>
               <li>Dimension: ${vessel.data().Dimensions}</li>
-              <li>Class: ${vessel.data().Dimensions}</li>
+              <li>Class: ${vessel.data().Class}</li>
               <li>Engine: ${vessel.data().Engine}</li>
-              <li>Dimension: ${vessel.data().Dimensions}</li>
+              
 
 
             </ul>
@@ -438,9 +438,9 @@ function load_vessel_admin(filter) {
               <ul>
               <li>Bhp/Dwt/Teu: ${vessel.data().Bhp} </li>
               <li>Dimension: ${vessel.data().Dimensions}</li>
-              <li>Class: ${vessel.data().Dimensions}</li>
+              <li>Class: ${vessel.data().Class}</li>
               <li>Engine: ${vessel.data().Engine}</li>
-              <li>Dimension: ${vessel.data().Dimensions}</li>
+              
                           </ul>`;
 
           if (vessel.data().Status != "sold") {
@@ -513,9 +513,9 @@ function load_vessel_client(filter) {
             <ul>
               <li>Bhp/Dwt/Teu: ${vessel.data().Bhp} </li>
               <li>Dimension: ${vessel.data().Dimensions}</li>
-              <li>Class: ${vessel.data().Dimensions}</li>
+              <li>Class: ${vessel.data().Class}</li>
               <li>Engine: ${vessel.data().Engine}</li>
-              <li>Dimension: ${vessel.data().Dimensions}</li>
+              
             </ul>
             <p>${vessel.data().Description}</p>
           </div>
@@ -554,7 +554,7 @@ function load_vessel_client(filter) {
               <ul>
               <li>Bhp/Dwt/Teu: ${vessel.data().Bhp} </li>
               <li>Dimension: ${vessel.data().Dimensions}</li>
-              <li>Class: ${vessel.data().Dimensions}</li>
+              <li>Class: ${vessel.data().Class}</li>
               <li>Engine: ${vessel.data().Engine}</li>
             </ul>
             <p>${vessel.data().Description}</p>
