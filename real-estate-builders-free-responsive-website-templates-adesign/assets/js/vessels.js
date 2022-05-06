@@ -309,7 +309,6 @@ submitcommentform.addEventListener('submit', (e) => {
   let dimensions = document.querySelector('#dimensions').value;
   let engine = document.querySelector('#engine').value;
   let vessel_description = document.querySelector('#vessel_description').value;
-
   let file = document.querySelector("#listing_image").files[0];
 
   let image = new Date() + "_" + file.name;
