@@ -82,33 +82,33 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					of type and scrambled it to make a type specimen book.
 				</p>
 
-				<form class="form-light mt-20" role="form">
+				<form class="form-light mt-20" role="form" id="contact_form">
 					<div class="form-group">
 						<label>Name</label>
-						<input type="text" class="form-control" placeholder="Your name">
+						<input type="text" class="form-control" placeholder="Your name" id="name">
 					</div>
 					<div class="row">
 						<div class="col-md-6">
 							<div class="form-group">
 								<label>Email</label>
-								<input type="email" class="form-control" placeholder="Email address">
+								<input type="email" class="form-control" placeholder="Email address" id="email">
 							</div>
 						</div>
 						<div class="col-md-6">
 							<div class="form-group">
 								<label>Phone</label>
-								<input type="text" class="form-control" placeholder="Phone number">
+								<input type="text" class="form-control" placeholder="Phone number" id="phone">
 							</div>
 						</div>
 					</div>
 					<div class="form-group">
 						<label>Subject</label>
-						<input type="text" class="form-control" placeholder="Subject">
+						<input type="text" class="form-control" placeholder="Subject" id="subject">
 					</div>
 					<div class="form-group">
 						<label>Message</label>
 						<textarea class="form-control" id="message" placeholder="Write you message here..."
-							style="height:100px;"></textarea>
+							style="height:100px;" id="message"></textarea>
 					</div>
 					<button type="submit" class="btn btn-two">Send message</button>
 					<p><br /></p>
@@ -209,6 +209,45 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	<!-- Google Maps -->
 	<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
 	<script src="assets/js/google-map.js"></script>
+	    <!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
+
+    <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
+
+    <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-storage.js"></script>
+
+    <!-- Add Firebase products that you want to use -->
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-firestore.js"></script>
+
+    <script>
+        // TODO
+        // Copy **only** your firebaseConfig from Google Firebae and add it below
+
+        // Your web app's Firebase configuration 
+        const firebaseConfig = {
+            apiKey: "AIzaSyAUvPxbO2_OvA_QUpa72Mh8GfhrvzcyPmI",
+            authDomain: "sapangarshipyard-f7b7d.firebaseapp.com",
+            projectId: "sapangarshipyard-f7b7d",
+            storageBucket: "sapangarshipyard-f7b7d.appspot.com",
+            messagingSenderId: "281941886090",
+            appId: "1:281941886090:web:f0f167df6a16f6d5af1973",
+            measurementId: "G-QXLNYQDKD1"
+        };
+
+
+
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        // define authentication variable
+        let auth = firebase.auth();
+        let db = firebase.firestore();
+
+        // define a storage reference
+        let ref = firebase.storage().ref();
+    </script>
 
 
 </body>
