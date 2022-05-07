@@ -6,35 +6,9 @@ Website: http://webthemez.com
 Note: Please do not remove the footer backlink (webthemez.com)--(if you want to remove contact: webthemez@gmail.com)
 Licence: Creative Commons Attribution 3.0** - http://creativecommons.org/licenses/by/3.0/
 */
-let contactForm = document.querySelector("#contact_form");
-
-contactForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    let name = document.querySelector("#name").value;
-    let email = document.querySelector("#email").value;
-    let phone = document.querySelector("#phone").value;
-    let subject = document.querySelector("#subject").value;
-    let message = document.querySelector("#message").value;
-    
-    let messageDetails = {
-        Name: name,
-        Email: email,
-        Phone: phone,
-        Subject: subject,
-        Message: message,
-    }
-
-    db.collection("contact_requests").add(messageDetails).then((data) => {
-        console.log("message sent successfully");
-        contactForm.reset();
-        alert(`Your message has been sent successfully, we will get back to you shortly through email..`);
-        window.location.reload();
-    })
-})
-
 
 jQuery(document).ready(function ($) {
-    
+
     //Set the carousel options
     $('#quote-carousel').carousel({
         pause: true,
