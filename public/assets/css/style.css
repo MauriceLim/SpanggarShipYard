@@ -901,7 +901,7 @@ nav#filter a.current {
 	height: 100px;
 	min-height: 100px;
 	padding-top: 0px;
-	background: #181015 url(../images/bg_header.jpg) 0px -500px no-repeat;
+	background: #181015 url(../images/bg_header.jpg) 0px -700px;
 	/*background: #ae130c;*/
 	background-size: cover;
 	text-align: left;

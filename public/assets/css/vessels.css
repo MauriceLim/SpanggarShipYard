@@ -64,6 +64,10 @@
     padding-left: 0 !important;
 }
 
+.row {
+    margin-right: -33px;
+}
+
 .card-footer {
     margin-top: 0 !important;
 }
@@ -72,6 +76,7 @@
     height: 500px;
     overflow-x: auto;
     overflow-y: auto;
+    border-radius: 2rem;
 }
 
 /* .card p {
@@ -81,8 +86,8 @@
 } */
 
 .sortlinks {
-    margin: auto;
+    margin-left: auto;
     width: 33%;
-    border: 3px solid rgb(179, 112, 112);
+    border: 3px solid red;
     padding: 10px;
 }
